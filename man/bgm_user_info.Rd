@@ -28,5 +28,5 @@ Get bangumi user information
 \examples{
 library(bangumir)
 bgm_user_info(username = "sai")
-bgm_user_info(username = c("sai", "infinityloop"))
+bgm_user_info(username = c("sai", "infinityloop"), format = "t")
 }
