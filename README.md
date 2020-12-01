@@ -10,7 +10,7 @@ status](https://github.com/swsoyee/bangumir/workflows/R-CMD-check/badge.svg)](ht
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Codecov test
-coverage](https://codecov.io/gh/swsoyee/bangumir/branch/master/graph/badge.svg)](https://codecov.io/gh/swsoyee/bangumir?branch=master)
+coverage](https://codecov.io/gh/swsoyee/bangumir/branch/master/graph/badge.svg?token=WU6UMG8S4C)](https://codecov.io/gh/swsoyee/bangumir)
 <!-- badges: end -->
 
 The goal of bangumir is to …
