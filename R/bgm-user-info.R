@@ -10,6 +10,7 @@
 #' not recommended.
 #'
 #' @importFrom httr GET content
+#' @importFrom methods hasArg
 #'
 #' @return A list of json data in list, \code{response()} object, or a
 #' \code{data.frame} contains all users' information.
@@ -25,7 +26,9 @@ bgm_user_info <- function(username, format = "list", force = FALSE) {
   LIMIT_USER_COUNT <- 10
 
   # arguments check
-  if (!hasArg(username) || !is.vector(username) || length(username) == 0) {
+  if (!methods::hasArg(username)
+      || !is.vector(username)
+      || length(username) == 0) {
     stop("The argument `username` should be a vector and must be passed in.")
   }
   if (length(username) > LIMIT_USER_COUNT && force == FALSE) {
