@@ -18,6 +18,7 @@
 #' @examples
 #' library(bangumir)
 #' bgm_user_info(username = "sai")
+#' bgm_user_info(username = c("sai", "infinityloop"), format = "t")
 bgm_user_info <- function(username, format = "list", force = FALSE) {
   # settings
   URL_BASE <- "https://api.bgm.tv/user/"
