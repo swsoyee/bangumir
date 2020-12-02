@@ -17,3 +17,19 @@ test_that("bgm_user_info args check", {
          which is not recommended."
   )
 })
+
+test_that(".valid_args", {
+  limited_args <- list(
+    "a" = c("b", "c"),
+    "d" = c("e", "f", "g"),
+    "h" = 1:3
+  )
+  expect_equal(
+    .valid_args(limited_args),
+    list(
+      "a" = "b",
+      "d" = "e",
+      "h" = 1
+    )
+  )
+})
