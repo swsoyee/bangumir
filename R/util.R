@@ -23,9 +23,3 @@ check_username <- function(username, force = FALSE) {
     stop("The argument `username` should be a character and must be passed in.")
   }
 }
-
-.valid_args <- function(limited_args) {
-  lapply(limited_args, function(i) {
-    arg <- match.arg(NULL, i)
-  })
-}

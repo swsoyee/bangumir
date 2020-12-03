@@ -24,9 +24,9 @@ bgm_user_collection <- function(username,
   # config
   base <- "https://api.bgm.tv/user/%s/collection"
   limited_args <- list(
-    "cat" = cat,
-    "responseGroup" = responseGroup,
-    "format" = format
+    "cat" = match.arg(cat, c("watching", "all_watching")),
+    "responseGroup" = match.arg(responseGroup, c("medium", "small")),
+    "format" = match.arg(format, c("list", "table", "default"))
   )
 
   # arguments check
@@ -34,13 +34,12 @@ bgm_user_collection <- function(username,
   if (length(ids) > 0 && !is.numeric(ids)) {
     stop("Only accept numeric vector in `ids` argument.")
   }
-  valid_args <- .valid_args(limited_args)
 
   # get resource
   res <- httr::GET(
     url = sprintf(base, username),
     query = c(
-      valid_args,
+      limited_args,
       "username" = username,
       "ids" = ids
     )
@@ -49,7 +48,7 @@ bgm_user_collection <- function(username,
 
   # return
   return(switch(
-    format,
+    limited_args$format,
     list = content,
     default = res,
     table = json_to_df(content)
