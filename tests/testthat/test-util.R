@@ -18,7 +18,14 @@ test_that("bgm_user_info args check", {
   )
 })
 
-test_that(".valid_args", {
+test_that(".check_username()", {
+  expect_error(
+    .check_username(),
+    "The argument `username` should be a character and must be passed in."
+  )
+})
+
+test_that(".valid_args()", {
   limited_args <- list(
     "a" = c("b", "c"),
     "d" = c("e", "f", "g"),

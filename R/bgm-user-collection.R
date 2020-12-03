@@ -30,9 +30,7 @@ bgm_user_collection <- function(username,
   )
 
   # arguments check
-  if (missing(username) || length(username) != 1) {
-    stop("The argument `username` should be a string and must be passed in.")
-  }
+  .check_username(username)
   if (length(ids) > 0 && !is.numeric(ids)) {
     stop("Only accept numeric vector in `ids` argument.")
   }
