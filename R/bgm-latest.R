@@ -16,7 +16,7 @@
 #'
 #' @importFrom httr GET content
 #'
-#' @return A list of json data in list, \code{response()} object, or a
+#' @return A list of response content, \code{response()} object, or a
 #' \code{data.table} contains the latest collections.
 #' @export
 #'

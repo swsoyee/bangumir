@@ -32,7 +32,7 @@ internal tool, the recommended practice is to create a new application on
 \href{https://bgm.tv/dev/app}{Bangumi} and use those keys for your purposes.}
 }
 \value{
-A list of json data in list, \code{response()} object, or a
+A list of response content, \code{response()} object, or a
 \code{data.table} contains the latest collections.
 }
 \description{
