@@ -139,8 +139,7 @@
       <th>format</th>
       <td><p>Result will be a list of json data when set to <code>list</code>
 (default), <code>response()</code> object when set to <code>default</code>. Set to
-<code>table</code> will convert the episode list to a <code>data.frame</code> for ease of
-use.</p></td>
+<code>table</code> will convert the list to a <code>data.frame</code> for ease of use.</p></td>
     </tr>
     </table>
 
@@ -150,75 +149,623 @@ use.</p></td>
 the <code>format</code> option.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>result</span> <span class='op'>&lt;-</span> <span class='fu'>bgm_calendar</span><span class='op'>(</span><span class='st'>"table"</span><span class='op'>)</span>
-
-<span class='co'># Bangumi list on Monday</span>
-<span class='va'>result</span><span class='op'>$</span><span class='va'>mon</span>
-</div><div class='output co'>#&gt;         id                          url type                        name
-#&gt;  1: 279059 http://bgm.tv/subject/279059    2    おちこぼれフルーツタルト
-#&gt;  2: 285901 http://bgm.tv/subject/285901    2      ゴールデンカムイ 第3期
-#&gt;  3: 289131 http://bgm.tv/subject/289131    2 A3! SEASON AUTUMN ＆ WINTER
-#&gt;  4: 290426 http://bgm.tv/subject/290426    2            魔王城でおやすみ
-#&gt;  5: 301233 http://bgm.tv/subject/301233    2     One Room サードシーズン
-#&gt;  6: 309910 http://bgm.tv/subject/309910    2            おそ松さん 第3期
-#&gt;  7: 315039 http://bgm.tv/subject/315039    2                    宿身小人
-#&gt;  8: 315133 http://bgm.tv/subject/315133    2            それだけがネック
-#&gt;  9: 316183 http://bgm.tv/subject/316183    2             梦幻书院 第四季
-#&gt; 10: 317276 http://bgm.tv/subject/317276    2                この空の下で
-#&gt; 11: 317653 http://bgm.tv/subject/317653    2                十年分の私へ
-#&gt; 12: 320427 http://bgm.tv/subject/320427    2        开心超人联盟之星之力
-#&gt;                   name_cn summary   air_date air_weekday rating.total
-#&gt;  1:          满溢的水果挞         2020-10-12           1          170
-#&gt;  2:       黄金神威 第三季         2020-10-05           1          126
-#&gt;  3: A3!满开剧团 秋&amp;amp;冬         2020-10-12           1            5
-#&gt;  4:        在魔王城说晚安         2020-10-05           1          398
-#&gt;  5:       One Room 第三季         2020-10-05           1          207
-#&gt;  6:           阿松 第三季         2020-10-12           1           62
-#&gt;  7:              宿身小人         2020-10-05           1            2
-#&gt;  8:                               2020-10-12           1         &lt;NA&gt;
-#&gt;  9:       梦幻书院 第四季         2020-10-12           1            1
-#&gt; 10:                               2020-10-19           1            3
-#&gt; 11:                               2020-10-26           1           58
-#&gt; 12:                               2020-10-12           1         &lt;NA&gt;
-#&gt;     rating.count.10 rating.count.9 rating.count.8 rating.count.7 rating.count.6
-#&gt;  1:               6              6             24             56             51
-#&gt;  2:               5             21             66             26              5
-#&gt;  3:               0              0              2              2              1
-#&gt;  4:              15             11             70            170             94
-#&gt;  5:               7              4             55             94             38
-#&gt;  6:               2              2             20             30              5
-#&gt;  7:               0              0              0              1              1
-#&gt;  8:            &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;
-#&gt;  9:               0              0              0              0              1
-#&gt; 10:               0              0              0              0              1
-#&gt; 11:               0              4              8             16             21
-#&gt; 12:            &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;
-#&gt;     rating.count.5 rating.count.4 rating.count.3 rating.count.2 rating.count.1
-#&gt;  1:             18              6              2              1              0
-#&gt;  2:              2              1              0              0              0
-#&gt;  3:              0              0              0              0              0
-#&gt;  4:             27              4              3              3              1
-#&gt;  5:              7              1              1              0              0
-#&gt;  6:              3              0              0              0              0
-#&gt;  7:              0              0              0              0              0
-#&gt;  8:           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;
-#&gt;  9:              0              0              0              0              0
-#&gt; 10:              2              0              0              0              0
-#&gt; 11:              9              0              0              0              0
-#&gt; 12:           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;           &lt;NA&gt;
-#&gt;     rating.score rank                                          images.large
-#&gt;  1:          6.6 3189 http://lain.bgm.tv/pic/cover/l/0d/2e/279059_NNOnk.jpg
-#&gt;  2:          7.9  482 http://lain.bgm.tv/pic/cover/l/72/f9/285901_94tQr.jpg
-#&gt;  3:          7.2 &lt;NA&gt; http://lain.bgm.tv/pic/cover/l/8a/f4/289131_wg9Cd.jpg
-#&gt;  4:          6.9 2615 http://lain.bgm.tv/pic/cover/l/b1/c3/290426_z4GRp.jpg
-#&gt;  5:          7.1 1813 http://lain.bgm.tv/pic/cover/l/40/5b/301233_mq8zr.jpg
-#&gt;  6:          7.3 1430 http://lain.bgm.tv/pic/cover/l/49/41/309910_jm70D.jpg
-#&gt;  7:          6.5 &lt;NA&gt; http://lain.bgm.tv/pic/cover/l/da/bc/315039_rRr01.jpg
-#&gt;  8:         &lt;NA&gt; &lt;NA&gt; http://lain.bgm.tv/pic/cover/l/20/a9/315133_1tyTo.jpg
-#&gt;  9:            6 &lt;NA&gt; http://lain.bgm.tv/pic/cover/l/2f/64/316183_1C1D7.jpg
-#&gt; 10:          5.3 &lt;NA&gt; http://lain.bgm.tv/pic/cover/l/2a/be/317276_YVLrl.jpg
-#&gt; 11:          6.6 2703 http://lain.bgm.tv/pic/cover/l/ab/9a/317653_mHcgo.jpg
-#&gt; 12:         &lt;NA&gt; &lt;NA&gt; http://lain.bgm.tv/pic/cover/l/76/ff/320427_384xY.jpg
+    <pre class="examples"><div class='input'><span class='fu'>bgm_calendar</span><span class='op'>(</span><span class='st'>"table"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;         id                          url type
+#&gt;  1: 279059 http://bgm.tv/subject/279059    2
+#&gt;  2: 285901 http://bgm.tv/subject/285901    2
+#&gt;  3: 289131 http://bgm.tv/subject/289131    2
+#&gt;  4: 290426 http://bgm.tv/subject/290426    2
+#&gt;  5: 301233 http://bgm.tv/subject/301233    2
+#&gt;  6: 309910 http://bgm.tv/subject/309910    2
+#&gt;  7: 315039 http://bgm.tv/subject/315039    2
+#&gt;  8: 315133 http://bgm.tv/subject/315133    2
+#&gt;  9: 316183 http://bgm.tv/subject/316183    2
+#&gt; 10: 317276 http://bgm.tv/subject/317276    2
+#&gt; 11: 317653 http://bgm.tv/subject/317653    2
+#&gt; 12: 320427 http://bgm.tv/subject/320427    2
+#&gt; 13: 240741 http://bgm.tv/subject/240741    2
+#&gt; 14: 241267 http://bgm.tv/subject/241267    2
+#&gt; 15: 289915 http://bgm.tv/subject/289915    2
+#&gt; 16: 308025 http://bgm.tv/subject/308025    2
+#&gt; 17: 318582 http://bgm.tv/subject/318582    2
+#&gt; 18: 320733 http://bgm.tv/subject/320733    2
+#&gt; 19: 253046 http://bgm.tv/subject/253046    2
+#&gt; 20: 266349 http://bgm.tv/subject/266349    2
+#&gt; 21: 292273 http://bgm.tv/subject/292273    2
+#&gt; 22: 294878 http://bgm.tv/subject/294878    2
+#&gt; 23: 297624 http://bgm.tv/subject/297624    2
+#&gt; 24: 306909 http://bgm.tv/subject/306909    2
+#&gt; 25: 310899 http://bgm.tv/subject/310899    2
+#&gt; 26: 311600 http://bgm.tv/subject/311600    2
+#&gt; 27: 312314 http://bgm.tv/subject/312314    2
+#&gt; 28: 312966 http://bgm.tv/subject/312966    2
+#&gt; 29: 316182 http://bgm.tv/subject/316182    2
+#&gt; 30: 231210 http://bgm.tv/subject/231210    2
+#&gt; 31: 269550 http://bgm.tv/subject/269550    2
+#&gt; 32: 282372 http://bgm.tv/subject/282372    2
+#&gt; 33: 292712 http://bgm.tv/subject/292712    2
+#&gt; 34: 297969 http://bgm.tv/subject/297969    2
+#&gt; 35: 302076 http://bgm.tv/subject/302076    2
+#&gt; 36: 303157 http://bgm.tv/subject/303157    2
+#&gt; 37: 316789 http://bgm.tv/subject/316789    2
+#&gt; 38: 317293 http://bgm.tv/subject/317293    2
+#&gt; 39: 317338 http://bgm.tv/subject/317338    2
+#&gt; 40: 318509 http://bgm.tv/subject/318509    2
+#&gt; 41: 320844 http://bgm.tv/subject/320844    2
+#&gt; 42: 219141 http://bgm.tv/subject/219141    2
+#&gt; 43: 242739 http://bgm.tv/subject/242739    2
+#&gt; 44: 291412 http://bgm.tv/subject/291412    2
+#&gt; 45: 292970 http://bgm.tv/subject/292970    2
+#&gt; 46: 294993 http://bgm.tv/subject/294993    2
+#&gt; 47: 295421 http://bgm.tv/subject/295421    2
+#&gt; 48: 295862 http://bgm.tv/subject/295862    2
+#&gt; 49: 296078 http://bgm.tv/subject/296078    2
+#&gt; 50: 297340 http://bgm.tv/subject/297340    2
+#&gt; 51: 299372 http://bgm.tv/subject/299372    2
+#&gt; 52: 301469 http://bgm.tv/subject/301469    2
+#&gt; 53: 301541 http://bgm.tv/subject/301541    2
+#&gt; 54: 305621 http://bgm.tv/subject/305621    2
+#&gt; 55: 316107 http://bgm.tv/subject/316107    2
+#&gt; 56: 316796 http://bgm.tv/subject/316796    2
+#&gt; 57: 317620 http://bgm.tv/subject/317620    2
+#&gt; 58: 319284 http://bgm.tv/subject/319284    2
+#&gt; 59:    899    http://bgm.tv/subject/899    2
+#&gt; 60: 260770 http://bgm.tv/subject/260770    2
+#&gt; 61: 289101 http://bgm.tv/subject/289101    2
+#&gt; 62: 292233 http://bgm.tv/subject/292233    2
+#&gt; 63: 296659 http://bgm.tv/subject/296659    2
+#&gt; 64: 296980 http://bgm.tv/subject/296980    2
+#&gt; 65: 301369 http://bgm.tv/subject/301369    2
+#&gt; 66: 305114 http://bgm.tv/subject/305114    2
+#&gt; 67: 306193 http://bgm.tv/subject/306193    2
+#&gt; 68: 306429 http://bgm.tv/subject/306429    2
+#&gt; 69: 312979 http://bgm.tv/subject/312979    2
+#&gt; 70: 313936 http://bgm.tv/subject/313936    2
+#&gt; 71: 317002 http://bgm.tv/subject/317002    2
+#&gt; 72:    975    http://bgm.tv/subject/975    2
+#&gt; 73: 285899 http://bgm.tv/subject/285899    2
+#&gt; 74: 291203 http://bgm.tv/subject/291203    2
+#&gt; 75: 297022 http://bgm.tv/subject/297022    2
+#&gt; 76: 300685 http://bgm.tv/subject/300685    2
+#&gt; 77: 302418 http://bgm.tv/subject/302418    2
+#&gt; 78: 311911 http://bgm.tv/subject/311911    2
+#&gt; 79: 313634 http://bgm.tv/subject/313634    2
+#&gt; 80: 314312 http://bgm.tv/subject/314312    2
+#&gt; 81: 315773 http://bgm.tv/subject/315773    2
+#&gt; 82: 316103 http://bgm.tv/subject/316103    2
+#&gt; 83: 316106 http://bgm.tv/subject/316106    2
+#&gt; 84: 316621 http://bgm.tv/subject/316621    2
+#&gt; 85: 316787 http://bgm.tv/subject/316787    2
+#&gt; 86: 317337 http://bgm.tv/subject/317337    2
+#&gt;         id                          url type
+#&gt;                                                     name
+#&gt;  1:                             おちこぼれフルーツタルト
+#&gt;  2:                               ゴールデンカムイ 第3期
+#&gt;  3:                          A3! SEASON AUTUMN ＆ WINTER
+#&gt;  4:                                     魔王城でおやすみ
+#&gt;  5:                              One Room サードシーズン
+#&gt;  6:                                     おそ松さん 第3期
+#&gt;  7:                                             宿身小人
+#&gt;  8:                                     それだけがネック
+#&gt;  9:                                      梦幻书院 第四季
+#&gt; 10:                                         この空の下で
+#&gt; 11:                                         十年分の私へ
+#&gt; 12:                                 开心超人联盟之星之力
+#&gt; 13:                                                 芯觉
+#&gt; 14:                          禍つヴァールハイト -ZUERST-
+#&gt; 15:                             池袋ウエストゲートパーク
+#&gt; 16:                                           战双帕尼尼
+#&gt; 17:                          どうしても干支にはいりたい2
+#&gt; 18:                             ゴールデン道画劇場 第3期
+#&gt; 19:                ストライクウィッチーズ ROAD to BERLIN
+#&gt; 20:                           ツキウタ。 THE ANIMATION 2
+#&gt; 21:       キミと僕の最後の戦場、あるいは世界が始まる聖戦
+#&gt; 22:                                  拾忆长安·明月几时有
+#&gt; 23:                                     くまクマ熊ベアー
+#&gt; 24:                                        书灵记 第二季
+#&gt; 25:                 せいぜいがんばれ！魔法少女くるみ 3期
+#&gt; 26:                                   土下座で頼んでみた
+#&gt; 27:                                              万圣街2
+#&gt; 28:                                  NOBLESSE -ノブレス-
+#&gt; 29:                                    少女前线：治愈篇2
+#&gt; 30:                                   秦时明月之沧海横流
+#&gt; 31:                                   我家大师兄是个反派
+#&gt; 32:                                       安達としまむら
+#&gt; 33:                               アサルトリリィ BOUQUET
+#&gt; 34:                                ひぐらしのなく頃に 業
+#&gt; 35:                                     アクダマドライブ
+#&gt; 36:                                         ぐらぶるっ！
+#&gt; 37:                                             肥志百科
+#&gt; 38:                                               歌莉娅
+#&gt; 39:                                               天启日
+#&gt; 40:                          魔王城でおやすみ ミニアニメ
+#&gt; 41:                    SpongeBob SquarePants (Season 13)
+#&gt; 42:                                   我为歌狂之旋律重启
+#&gt; 43:                                                 秦侠
+#&gt; 44:  ダンジョンに出会いを求めるのは間違っているだろうかⅢ
+#&gt; 45:                                           魔女の旅々
+#&gt; 46:                                             呪術廻戦
+#&gt; 47:                    ハイキュー!! TO THE TOP 第2クール
+#&gt; 48: 『ヒプノシスマイク-Division Rap Battle-』Rhyme Anima
+#&gt; 49:                 犬と猫どっちも飼ってると毎日たのしい
+#&gt; 50:                                   レヱル・ロマネスク
+#&gt; 51:                                       D4DJ First Mix
+#&gt; 52:                        100万の命の上に俺は立っている
+#&gt; 53:                                     トニカクカワイイ
+#&gt; 54:                    キングスレイド 意志を継ぐものたち
+#&gt; 55:                                   最響カミズモード！
+#&gt; 56:                                         カピバラさん
+#&gt; 57:                                                 約束
+#&gt; 58:                                 べあべあべあくまー！
+#&gt; 59:                                         名探偵コナン
+#&gt; 60:                         ご注文はうさぎですか？ BLOOM
+#&gt; 61:                                             天官赐福
+#&gt; 62:                          魔法科高校の劣等生 来訪者編
+#&gt; 63:         ラブライブ！虹ヶ咲学園スクールアイドル同好会
+#&gt; 64:                        ドラゴンクエスト ダイの大冒険
+#&gt; 65:                               戦翼のシグルドリーヴァ
+#&gt; 66:                  いわかける！ -Sport Climbing Girls-
+#&gt; 67:                                         半妖の夜叉姫
+#&gt; 68:                                       神様になった日
+#&gt; 69:                                         体操ザムライ
+#&gt; 70:                           剑网3·侠肝义胆沈剑心之长漂
+#&gt; 71:                                鬼滅の刃 那田蜘蛛山編
+#&gt; 72:                                            ONE PIECE
+#&gt; 73:                                           まえせつ！
+#&gt; 74:                                             英雄再临
+#&gt; 75:                                   憂国のモリアーティ
+#&gt; 76:                                     神達に拾われた男
+#&gt; 77:                                           無能なナナ
+#&gt; 78:                                             绝世武魂
+#&gt; 79:                          凡人修仙传之凡人风起天南 贰
+#&gt; 80:                       大人にゃ恋の仕方がわからねぇ！
+#&gt; 81:                       かえるのピクルス-きもちのいろ-
+#&gt; 82:               秘密結社 鷹の爪 ～ゴールデン・スペル～
+#&gt; 83:                 エタニティ ～深夜の濡恋ちゃんねる♡～
+#&gt; 84:                                       忘却バッテリー
+#&gt; 85:                          如果历史是一群喵 乱世三国篇
+#&gt; 86:               TALES OF CRESTORIA ーTHE WAKE OF SINー
+#&gt;                                                     name
+#&gt;                                      name_cn summary   air_date air_weekday
+#&gt;  1:                             满溢的水果挞         2020-10-12           1
+#&gt;  2:                          黄金神威 第三季         2020-10-05           1
+#&gt;  3:                    A3!满开剧团 秋&amp;amp;冬         2020-10-12           1
+#&gt;  4:                           在魔王城说晚安         2020-10-05           1
+#&gt;  5:                          One Room 第三季         2020-10-05           1
+#&gt;  6:                              阿松 第三季         2020-10-12           1
+#&gt;  7:                                 宿身小人         2020-10-05           1
+#&gt;  8:                                                  2020-10-12           1
+#&gt;  9:                          梦幻书院 第四季         2020-10-12           1
+#&gt; 10:                                                  2020-10-19           1
+#&gt; 11:                                                  2020-10-26           1
+#&gt; 12:                                                  2020-10-12           1
+#&gt; 13:                                     芯觉         2020-10-13           2
+#&gt; 14:                      灾祸的真理 -ZUERST-         2020-10-13           2
+#&gt; 15:                             池袋西口公园         2020-10-06           2
+#&gt; 16:                               战双帕尼尼         2020-10-27           2
+#&gt; 17:                    无论如何都想加入生肖2         2020-10-06           2
+#&gt; 18:                   黄金神威 小剧场 第三季         2020-10-06           2
+#&gt; 19:                    强袭魔女 通往柏林之路         2020-10-07           3
+#&gt; 20:                                    月歌2         2020-10-07           3
+#&gt; 21: 这是你与我的最后战场，或是开创世界的圣战         2020-10-07           3
+#&gt; 22:                      拾忆长安·明月几时有         2020-10-28           3
+#&gt; 23:                           熊熊勇闯异世界         2020-10-07           3
+#&gt; 24:                            书灵记 第二季         2020-10-28           3
+#&gt; 25:          尽量加油吧！魔法少女胡桃 第三季         2020-10-07           3
+#&gt; 26:                 试着用土下座来拜托她们吧         2020-10-14           3
+#&gt; 27:                            万圣街 第二季         2020-10-14           3
+#&gt; 28:                                   大贵族         2020-10-07           3
+#&gt; 29:               少女前线 人型小剧场 第二季         2020-10-07           3
+#&gt; 30:                       秦时明月之沧海横流         2020-10-08           4
+#&gt; 31:                       我家大师兄是个反派         2020-10-29           4
+#&gt; 32:                               安达与岛村         2020-10-08           4
+#&gt; 33:                     Assault Lily BOUQUET         2020-10-01           4
+#&gt; 34:                          寒蝉鸣泣之时 业         2020-10-01           4
+#&gt; 35:                                恶玉DRIVE         2020-10-08           4
+#&gt; 36:                             小碧蓝幻想！         2020-10-08           4
+#&gt; 37:                                                  2020-10-22           4
+#&gt; 38:                                                  2020-10-15           4
+#&gt; 39:                                                  2020-10-15           4
+#&gt; 40:                                                  2020-10-08           4
+#&gt; 41:                        海绵宝宝 第十三季         2020-10-22           4
+#&gt; 42:                       我为歌狂之旋律重启         2020-10-02           5
+#&gt; 43:                                     秦侠         2020-10-16           5
+#&gt; 44:                  期待在地下城邂逅有错吗Ⅲ         2020-10-02           5
+#&gt; 45:                                 魔女之旅         2020-10-02           5
+#&gt; 46:                                 咒术回战         2020-10-02           5
+#&gt; 47:               排球少年 TO THE TOP 第二期         2020-10-02           5
+#&gt; 48:                               催眠麦克风         2020-10-02           5
+#&gt; 49:                       养猫养狗每天很开心         2020-10-02           5
+#&gt; 50:                               铁路浪漫谭         2020-10-02           5
+#&gt; 51:                                                  2020-10-30           5
+#&gt; 52:                       我立于百万生命之上         2020-10-02           5
+#&gt; 53:                         总之就是非常可爱         2020-10-02           5
+#&gt; 54:                   王之逆袭：意志的继承者         2020-10-02           5
+#&gt; 55:                                                  2020-10-09           5
+#&gt; 56:                                   水豚君         2020-10-09           5
+#&gt; 57:                                     约定         2020-10-23           5
+#&gt; 58:                                                  2020-10-09           5
+#&gt; 59:                               名侦探柯南         1996-01-08           6
+#&gt; 60:            请问您今天要来点兔子吗？BLOOM         2020-10-10           6
+#&gt; 61:                                 天官赐福         2020-10-31           6
+#&gt; 62:              魔法科高校的劣等生 来访者篇         2020-10-03           6
+#&gt; 63:        Love Live! 虹咲学园校园偶像同好会         2020-10-03           6
+#&gt; 64:                  勇者斗恶龙 达伊的大冒险         2020-10-03           6
+#&gt; 65:                         战翼的希格德莉法         2020-10-03           6
+#&gt; 66:            攀岩！ -Sport Climbing Girls-         2020-10-03           6
+#&gt; 67:                             半妖的夜叉姬         2020-10-03           6
+#&gt; 68:                                 成神之日         2020-10-10           6
+#&gt; 69:                                 体操武士         2020-10-10           6
+#&gt; 70:               剑网3·侠肝义胆沈剑心之长漂         2020-10-24           6
+#&gt; 71:                    鬼灭之刃 那田蜘蛛山篇         2020-10-17           6
+#&gt; 72:                                   海贼王         1999-10-20           7
+#&gt; 73:                                   前说！         2020-10-11           7
+#&gt; 74:                                                  2020-10-18           7
+#&gt; 75:                           忧国的莫里亚蒂         2020-10-11           7
+#&gt; 76:                           被神捡到的男人         2020-10-04           7
+#&gt; 77:                               无能的奈奈         2020-10-04           7
+#&gt; 78:                                 绝世武魂         2020-10-25           7
+#&gt; 79:              凡人修仙传之凡人风起天南 贰         2020-10-11           7
+#&gt; 80:                     成年人不懂如何恋爱！         2020-10-04           7
+#&gt; 81:            pickles the frog -心情的颜色-         2020-10-04           7
+#&gt; 82:           秘密结社 鹰之爪 ~Golden Spell~         2020-10-04           7
+#&gt; 83:             Eternity ～深夜的濡恋频道♡～         2020-10-04           7
+#&gt; 84:                                                  2020-10-11           7
+#&gt; 85:                                                  2020-10-11           7
+#&gt; 86:                                                  2020-10-18           7
+#&gt;                                      name_cn summary   air_date air_weekday
+#&gt;     rating.total rating.count.10 rating.count.9 rating.count.8 rating.count.7
+#&gt;  1:          170               6              6             24             56
+#&gt;  2:          127               5             22             66             26
+#&gt;  3:            5               0              0              2              2
+#&gt;  4:          399              15             11             71            170
+#&gt;  5:          207               7              4             55             94
+#&gt;  6:           62               2              2             20             30
+#&gt;  7:            2               0              0              0              1
+#&gt;  8:           NA              NA             NA             NA             NA
+#&gt;  9:            1               0              0              0              0
+#&gt; 10:            3               0              0              0              0
+#&gt; 11:           58               0              4              8             16
+#&gt; 12:           NA              NA             NA             NA             NA
+#&gt; 13:            4               0              0              0              0
+#&gt; 14:           38               2              0              6             15
+#&gt; 15:          130               3              2              5             20
+#&gt; 16:            4               0              0              0              2
+#&gt; 17:           NA              NA             NA             NA             NA
+#&gt; 18:            1               0              0              0              1
+#&gt; 19:          103               4              9             49             32
+#&gt; 20:            8               0              1              1              2
+#&gt; 21:          255               5              2             10             51
+#&gt; 22:            2               0              0              0              2
+#&gt; 23:          250               8              1             21             49
+#&gt; 24:           NA              NA             NA             NA             NA
+#&gt; 25:           NA              NA             NA             NA             NA
+#&gt; 26:           54               5              0              5              4
+#&gt; 27:            2               0              0              2              0
+#&gt; 28:           38               1              0              4             13
+#&gt; 29:           13               0              0              3              5
+#&gt; 30:           14               3              0              3              4
+#&gt; 31:           14               0              1              1              5
+#&gt; 32:          446              22             23            141            169
+#&gt; 33:          399              12              9             86            131
+#&gt; 34:          283              24             22             94             92
+#&gt; 35:          439              14             13            124            142
+#&gt; 36:           30               1              0              2              7
+#&gt; 37:            4               0              0              1              3
+#&gt; 38:           12               0              0              0              3
+#&gt; 39:           10               0              0              2              2
+#&gt; 40:            3               0              0              0              1
+#&gt; 41:           NA              NA             NA             NA             NA
+#&gt; 42:           11               0              0              1              2
+#&gt; 43:            4               0              0              0              1
+#&gt; 44:          222               8              3             43            104
+#&gt; 45:          809              36             38            246            255
+#&gt; 46:          661              32             36            274            238
+#&gt; 47:          112               8              9             40             36
+#&gt; 48:           68               3              1              9             19
+#&gt; 49:           45               1              2              8             13
+#&gt; 50:           61               2              0              1              8
+#&gt; 51:           30               0              2              6              3
+#&gt; 52:          241               4              1             10             30
+#&gt; 53:          603              31             14            101            182
+#&gt; 54:           44               1              0              1              4
+#&gt; 55:            1               1              0              0              0
+#&gt; 56:           NA              NA             NA             NA             NA
+#&gt; 57:           20               0              0              0              4
+#&gt; 58:            1               0              0              0              1
+#&gt; 59:         4539             533            526           1351           1421
+#&gt; 60:          357              53             52            112             93
+#&gt; 61:           31               2              0              6              7
+#&gt; 62:          161               2              5             24             48
+#&gt; 63:          218               9             23            103             53
+#&gt; 64:           52               1              1             15             16
+#&gt; 65:          181               4              2             31             60
+#&gt; 66:          100               2              1              6             26
+#&gt; 67:          150               4              1             19             29
+#&gt; 68:          756              41             29            199            236
+#&gt; 69:          122               1              6             31             51
+#&gt; 70:            9               0              0              1              7
+#&gt; 71:           15               1              2              4              3
+#&gt; 72:         6717            2313           1419           1484            832
+#&gt; 73:           70               0              1              6             20
+#&gt; 74:            2               0              0              1              0
+#&gt; 75:          111               4              0             13             48
+#&gt; 76:          162               2              2              6             24
+#&gt; 77:          313              11              3             38            126
+#&gt; 78:            2               1              0              0              0
+#&gt; 79:           81               3              2             16             43
+#&gt; 80:           13               1              0              0              0
+#&gt; 81:           NA              NA             NA             NA             NA
+#&gt; 82:           NA              NA             NA             NA             NA
+#&gt; 83:           13               0              0              0              2
+#&gt; 84:            3               0              0              0              0
+#&gt; 85:            2               0              0              0              1
+#&gt; 86:            2               1              0              0              1
+#&gt;     rating.total rating.count.10 rating.count.9 rating.count.8 rating.count.7
+#&gt;     rating.count.6 rating.count.5 rating.count.4 rating.count.3 rating.count.2
+#&gt;  1:             51             18              6              2              1
+#&gt;  2:              5              2              1              0              0
+#&gt;  3:              1              0              0              0              0
+#&gt;  4:             94             27              4              3              3
+#&gt;  5:             38              7              1              1              0
+#&gt;  6:              5              3              0              0              0
+#&gt;  7:              1              0              0              0              0
+#&gt;  8:             NA             NA             NA             NA             NA
+#&gt;  9:              1              0              0              0              0
+#&gt; 10:              1              2              0              0              0
+#&gt; 11:             21              9              0              0              0
+#&gt; 12:             NA             NA             NA             NA             NA
+#&gt; 13:              1              3              0              0              0
+#&gt; 14:              7              6              1              1              0
+#&gt; 15:             40             38             10              5              4
+#&gt; 16:              2              0              0              0              0
+#&gt; 17:             NA             NA             NA             NA             NA
+#&gt; 18:              0              0              0              0              0
+#&gt; 19:              5              3              1              0              0
+#&gt; 20:              1              1              0              2              0
+#&gt; 21:            106             50             22              4              2
+#&gt; 22:              0              0              0              0              0
+#&gt; 23:             86             49             15             11              6
+#&gt; 24:             NA             NA             NA             NA             NA
+#&gt; 25:             NA             NA             NA             NA             NA
+#&gt; 26:              8             10              6              4              4
+#&gt; 27:              0              0              0              0              0
+#&gt; 28:              8              5              5              1              1
+#&gt; 29:              4              1              0              0              0
+#&gt; 30:              1              1              1              0              1
+#&gt; 31:              5              2              0              0              0
+#&gt; 32:             58             20              4              1              5
+#&gt; 33:            103             37             11              5              4
+#&gt; 34:             32             10              6              1              1
+#&gt; 35:             80             26             27              4              3
+#&gt; 36:             16              4              0              0              0
+#&gt; 37:              0              0              0              0              0
+#&gt; 38:              0              4              3              1              1
+#&gt; 39:              5              0              1              0              0
+#&gt; 40:              0              2              0              0              0
+#&gt; 41:             NA             NA             NA             NA             NA
+#&gt; 42:              6              2              0              0              0
+#&gt; 43:              2              1              0              0              0
+#&gt; 44:             41             14              5              3              0
+#&gt; 45:            142             46             29             10              4
+#&gt; 46:             57             14              4              2              1
+#&gt; 47:              8              6              3              0              1
+#&gt; 48:             20             10              2              2              1
+#&gt; 49:             18              3              0              0              0
+#&gt; 50:             18             18              9              3              1
+#&gt; 51:              8              4              2              2              0
+#&gt; 52:             72             66             37             12              5
+#&gt; 53:            159             60             30             10              5
+#&gt; 54:             16             15              5              1              1
+#&gt; 55:              0              0              0              0              0
+#&gt; 56:             NA             NA             NA             NA             NA
+#&gt; 57:              8              5              3              0              0
+#&gt; 58:              0              0              0              0              0
+#&gt; 59:            539            128             22              5              2
+#&gt; 60:             39              7              1              0              0
+#&gt; 61:              9              2              3              0              1
+#&gt; 62:             54             17              5              0              1
+#&gt; 63:             22              5              2              0              0
+#&gt; 64:             10              8              1              0              0
+#&gt; 65:             40             24             13              4              0
+#&gt; 66:             36             21              5              2              1
+#&gt; 67:             47             33              8              5              1
+#&gt; 68:            137             46             22             16              8
+#&gt; 69:             25              5              2              0              1
+#&gt; 70:              1              0              0              0              0
+#&gt; 71:              2              3              0              0              0
+#&gt; 72:            367            156             43             18             28
+#&gt; 73:             25             15              0              0              2
+#&gt; 74:              0              1              0              0              0
+#&gt; 75:             29             14              1              1              1
+#&gt; 76:             54             41             13              4              8
+#&gt; 77:             91             25              9              6              2
+#&gt; 78:              0              0              0              0              1
+#&gt; 79:             14              0              2              0              0
+#&gt; 80:              9              3              0              0              0
+#&gt; 81:             NA             NA             NA             NA             NA
+#&gt; 82:             NA             NA             NA             NA             NA
+#&gt; 83:              4              5              1              1              0
+#&gt; 84:              0              2              1              0              0
+#&gt; 85:              1              0              0              0              0
+#&gt; 86:              0              0              0              0              0
+#&gt;     rating.count.6 rating.count.5 rating.count.4 rating.count.3 rating.count.2
+#&gt;     rating.count.1 rating.score rank
+#&gt;  1:              0          6.6 3189
+#&gt;  2:              0          7.9  482
+#&gt;  3:              0          7.2   NA
+#&gt;  4:              1          6.9 2615
+#&gt;  5:              0          7.1 1813
+#&gt;  6:              0          7.3 1430
+#&gt;  7:              0          6.5   NA
+#&gt;  8:             NA           NA   NA
+#&gt;  9:              0          6.0   NA
+#&gt; 10:              0          5.3   NA
+#&gt; 11:              0          6.6 2703
+#&gt; 12:             NA           NA   NA
+#&gt; 13:              0          5.3   NA
+#&gt; 14:              0          6.6   NA
+#&gt; 15:              3          5.6 5302
+#&gt; 16:              0          6.5   NA
+#&gt; 17:             NA           NA   NA
+#&gt; 18:              0          7.0   NA
+#&gt; 19:              0          7.6  795
+#&gt; 20:              0          6.0   NA
+#&gt; 21:              3          5.9 5194
+#&gt; 22:              0          7.0   NA
+#&gt; 23:              4          5.9 5157
+#&gt; 24:             NA           NA   NA
+#&gt; 25:             NA           NA   NA
+#&gt; 26:              8          5.0 5291
+#&gt; 27:              0          8.0   NA
+#&gt; 28:              0          6.1   NA
+#&gt; 29:              0          6.8   NA
+#&gt; 30:              0          7.1   NA
+#&gt; 31:              0          6.6   NA
+#&gt; 32:              3          7.2 1558
+#&gt; 33:              1          6.7 3108
+#&gt; 34:              1          7.4 1017
+#&gt; 35:              6          6.8 2772
+#&gt; 36:              0          6.4   NA
+#&gt; 37:              0          7.3   NA
+#&gt; 38:              0          4.8   NA
+#&gt; 39:              0          6.4   NA
+#&gt; 40:              0          5.7   NA
+#&gt; 41:             NA           NA   NA
+#&gt; 42:              0          6.2   NA
+#&gt; 43:              0          6.0   NA
+#&gt; 44:              1          6.9 2446
+#&gt; 45:              3          7.0 2068
+#&gt; 46:              3          7.5  905
+#&gt; 47:              1          7.4 1252
+#&gt; 48:              1          6.3 3363
+#&gt; 49:              0          6.8   NA
+#&gt; 50:              1          5.4 4916
+#&gt; 51:              3          5.7   NA
+#&gt; 52:              4          5.4 5692
+#&gt; 53:             11          6.5 3766
+#&gt; 54:              0          5.5   NA
+#&gt; 55:              0         10.0   NA
+#&gt; 56:             NA           NA   NA
+#&gt; 57:              0          5.7   NA
+#&gt; 58:              0          7.0   NA
+#&gt; 59:             12          7.7  508
+#&gt; 60:              0          7.9  356
+#&gt; 61:              1          6.3   NA
+#&gt; 62:              5          6.4 3814
+#&gt; 63:              1          7.6  722
+#&gt; 64:              0          6.8 2278
+#&gt; 65:              3          6.4 3900
+#&gt; 66:              0          6.1 4258
+#&gt; 67:              3          6.0 4650
+#&gt; 68:             22          6.8 2426
+#&gt; 69:              0          7.0 2143
+#&gt; 70:              0          7.0   NA
+#&gt; 71:              0          7.2   NA
+#&gt; 72:             57          8.5   40
+#&gt; 73:              1          6.1 3932
+#&gt; 74:              0          6.5   NA
+#&gt; 75:              0          6.6 3078
+#&gt; 76:              8          5.4 5588
+#&gt; 77:              2          6.6 3564
+#&gt; 78:              0          6.0   NA
+#&gt; 79:              1          7.0 1920
+#&gt; 80:              0          6.1   NA
+#&gt; 81:             NA           NA   NA
+#&gt; 82:             NA           NA   NA
+#&gt; 83:              0          5.4   NA
+#&gt; 84:              0          4.7   NA
+#&gt; 85:              0          6.5   NA
+#&gt; 86:              0          8.5   NA
+#&gt;     rating.count.1 rating.score rank
+#&gt;                                              images.large
+#&gt;  1: http://lain.bgm.tv/pic/cover/l/0d/2e/279059_NNOnk.jpg
+#&gt;  2: http://lain.bgm.tv/pic/cover/l/72/f9/285901_94tQr.jpg
+#&gt;  3: http://lain.bgm.tv/pic/cover/l/8a/f4/289131_wg9Cd.jpg
+#&gt;  4: http://lain.bgm.tv/pic/cover/l/b1/c3/290426_z4GRp.jpg
+#&gt;  5: http://lain.bgm.tv/pic/cover/l/40/5b/301233_mq8zr.jpg
+#&gt;  6: http://lain.bgm.tv/pic/cover/l/49/41/309910_jm70D.jpg
+#&gt;  7: http://lain.bgm.tv/pic/cover/l/da/bc/315039_rRr01.jpg
+#&gt;  8: http://lain.bgm.tv/pic/cover/l/20/a9/315133_1tyTo.jpg
+#&gt;  9: http://lain.bgm.tv/pic/cover/l/2f/64/316183_1C1D7.jpg
+#&gt; 10: http://lain.bgm.tv/pic/cover/l/2a/be/317276_YVLrl.jpg
+#&gt; 11: http://lain.bgm.tv/pic/cover/l/ab/9a/317653_mHcgo.jpg
+#&gt; 12: http://lain.bgm.tv/pic/cover/l/76/ff/320427_384xY.jpg
+#&gt; 13: http://lain.bgm.tv/pic/cover/l/29/74/240741_SaM3P.jpg
+#&gt; 14: http://lain.bgm.tv/pic/cover/l/34/90/241267_g7zl4.jpg
+#&gt; 15: http://lain.bgm.tv/pic/cover/l/d1/ae/289915_Z2H5D.jpg
+#&gt; 16: http://lain.bgm.tv/pic/cover/l/bd/ab/308025_NZZ0i.jpg
+#&gt; 17: http://lain.bgm.tv/pic/cover/l/c0/8b/318582_1xLIq.jpg
+#&gt; 18: http://lain.bgm.tv/pic/cover/l/0b/e9/320733_ynyx8.jpg
+#&gt; 19: http://lain.bgm.tv/pic/cover/l/39/ad/253046_IjUfm.jpg
+#&gt; 20: http://lain.bgm.tv/pic/cover/l/07/5a/266349_2nNdX.jpg
+#&gt; 21: http://lain.bgm.tv/pic/cover/l/20/f7/292273_15ZAe.jpg
+#&gt; 22: http://lain.bgm.tv/pic/cover/l/e2/c9/294878_sEu23.jpg
+#&gt; 23: http://lain.bgm.tv/pic/cover/l/90/61/297624_nANa9.jpg
+#&gt; 24: http://lain.bgm.tv/pic/cover/l/00/0c/306909_UHI5H.jpg
+#&gt; 25: http://lain.bgm.tv/pic/cover/l/33/65/310899_WL100.jpg
+#&gt; 26: http://lain.bgm.tv/pic/cover/l/82/5d/311600_7gIfi.jpg
+#&gt; 27: http://lain.bgm.tv/pic/cover/l/e9/15/312314_2X5XZ.jpg
+#&gt; 28: http://lain.bgm.tv/pic/cover/l/40/2a/312966_7is7r.jpg
+#&gt; 29: http://lain.bgm.tv/pic/cover/l/8b/a0/316182_gyeG6.jpg
+#&gt; 30: http://lain.bgm.tv/pic/cover/l/8e/b8/231210_yXgIt.jpg
+#&gt; 31: http://lain.bgm.tv/pic/cover/l/18/07/269550_8Hr3Z.jpg
+#&gt; 32: http://lain.bgm.tv/pic/cover/l/0f/a4/282372_hzhyM.jpg
+#&gt; 33: http://lain.bgm.tv/pic/cover/l/61/f8/292712_pACzh.jpg
+#&gt; 34: http://lain.bgm.tv/pic/cover/l/1e/83/297969_Cn5jJ.jpg
+#&gt; 35: http://lain.bgm.tv/pic/cover/l/87/96/302076_Oixgz.jpg
+#&gt; 36: http://lain.bgm.tv/pic/cover/l/df/e0/303157_7snGf.jpg
+#&gt; 37: http://lain.bgm.tv/pic/cover/l/4c/14/316789_kzwkB.jpg
+#&gt; 38: http://lain.bgm.tv/pic/cover/l/b3/93/317293_7vtCy.jpg
+#&gt; 39: http://lain.bgm.tv/pic/cover/l/e2/65/317338_3Ng8E.jpg
+#&gt; 40: http://lain.bgm.tv/pic/cover/l/16/d3/318509_ZVVXi.jpg
+#&gt; 41: http://lain.bgm.tv/pic/cover/l/49/e6/320844_lOMg9.jpg
+#&gt; 42: http://lain.bgm.tv/pic/cover/l/f6/fb/219141_tcJbf.jpg
+#&gt; 43: http://lain.bgm.tv/pic/cover/l/3a/84/242739_Xox6W.jpg
+#&gt; 44: http://lain.bgm.tv/pic/cover/l/b6/d5/291412_G5EHw.jpg
+#&gt; 45: http://lain.bgm.tv/pic/cover/l/99/17/292970_mxMxx.jpg
+#&gt; 46: http://lain.bgm.tv/pic/cover/l/60/fe/294993_JrrzK.jpg
+#&gt; 47: http://lain.bgm.tv/pic/cover/l/e3/b4/295421_ScQzi.jpg
+#&gt; 48: http://lain.bgm.tv/pic/cover/l/39/b3/295862_zls1R.jpg
+#&gt; 49: http://lain.bgm.tv/pic/cover/l/c5/ed/296078_w19O3.jpg
+#&gt; 50: http://lain.bgm.tv/pic/cover/l/a4/32/297340_20R22.jpg
+#&gt; 51: http://lain.bgm.tv/pic/cover/l/ec/3c/299372_H4l74.jpg
+#&gt; 52: http://lain.bgm.tv/pic/cover/l/08/01/301469_cPTHi.jpg
+#&gt; 53: http://lain.bgm.tv/pic/cover/l/66/50/301541_p2z4K.jpg
+#&gt; 54: http://lain.bgm.tv/pic/cover/l/fe/ed/305621_C9K71.jpg
+#&gt; 55: http://lain.bgm.tv/pic/cover/l/f6/78/316107_P7AWf.jpg
+#&gt; 56: http://lain.bgm.tv/pic/cover/l/9f/5c/316796_s2718.jpg
+#&gt; 57: http://lain.bgm.tv/pic/cover/l/c9/35/317620_rbSsk.jpg
+#&gt; 58: http://lain.bgm.tv/pic/cover/l/69/02/319284_rXJ3i.jpg
+#&gt; 59:    http://lain.bgm.tv/pic/cover/l/01/88/899_Q3F3X.jpg
+#&gt; 60: http://lain.bgm.tv/pic/cover/l/0a/16/260770_4548k.jpg
+#&gt; 61: http://lain.bgm.tv/pic/cover/l/95/88/289101_Y6BuG.jpg
+#&gt; 62: http://lain.bgm.tv/pic/cover/l/43/a5/292233_Xzs8x.jpg
+#&gt; 63: http://lain.bgm.tv/pic/cover/l/a7/35/296659_o709D.jpg
+#&gt; 64: http://lain.bgm.tv/pic/cover/l/46/61/296980_ZskjE.jpg
+#&gt; 65: http://lain.bgm.tv/pic/cover/l/ec/05/301369_Yyp7J.jpg
+#&gt; 66: http://lain.bgm.tv/pic/cover/l/28/85/305114_2JS2j.jpg
+#&gt; 67: http://lain.bgm.tv/pic/cover/l/84/ad/306193_cb2Hh.jpg
+#&gt; 68: http://lain.bgm.tv/pic/cover/l/10/d5/306429_aIAux.jpg
+#&gt; 69: http://lain.bgm.tv/pic/cover/l/bf/2a/312979_2p9Ln.jpg
+#&gt; 70: http://lain.bgm.tv/pic/cover/l/a5/52/313936_g69Qs.jpg
+#&gt; 71: http://lain.bgm.tv/pic/cover/l/f6/7f/317002_MF07s.jpg
+#&gt; 72:    http://lain.bgm.tv/pic/cover/l/92/97/975_YKuWd.jpg
+#&gt; 73: http://lain.bgm.tv/pic/cover/l/f5/20/285899_rYFVV.jpg
+#&gt; 74: http://lain.bgm.tv/pic/cover/l/bd/30/291203_KSbIk.jpg
+#&gt; 75: http://lain.bgm.tv/pic/cover/l/76/c9/297022_37o57.jpg
+#&gt; 76: http://lain.bgm.tv/pic/cover/l/8a/1e/300685_RRrUx.jpg
+#&gt; 77: http://lain.bgm.tv/pic/cover/l/02/7e/302418_0sZ4N.jpg
+#&gt; 78: http://lain.bgm.tv/pic/cover/l/83/99/311911_Y11vG.jpg
+#&gt; 79: http://lain.bgm.tv/pic/cover/l/10/b2/313634_Iu9v6.jpg
+#&gt; 80: http://lain.bgm.tv/pic/cover/l/37/62/314312_f0b2q.jpg
+#&gt; 81: http://lain.bgm.tv/pic/cover/l/cd/2f/315773_NrTbn.jpg
+#&gt; 82: http://lain.bgm.tv/pic/cover/l/b8/c4/316103_LD2VT.jpg
+#&gt; 83: http://lain.bgm.tv/pic/cover/l/1a/68/316106_xFf9J.jpg
+#&gt; 84: http://lain.bgm.tv/pic/cover/l/24/e8/316621_jY8Dx.jpg
+#&gt; 85: http://lain.bgm.tv/pic/cover/l/a6/4f/316787_ppp1P.jpg
+#&gt; 86: http://lain.bgm.tv/pic/cover/l/da/24/317337_4H4oH.jpg
+#&gt;                                              images.large
 #&gt;                                             images.common
 #&gt;  1: http://lain.bgm.tv/pic/cover/c/0d/2e/279059_NNOnk.jpg
 #&gt;  2: http://lain.bgm.tv/pic/cover/c/72/f9/285901_94tQr.jpg
@@ -232,6 +779,81 @@ the <code>format</code> option.</p>
 #&gt; 10: http://lain.bgm.tv/pic/cover/c/2a/be/317276_YVLrl.jpg
 #&gt; 11: http://lain.bgm.tv/pic/cover/c/ab/9a/317653_mHcgo.jpg
 #&gt; 12: http://lain.bgm.tv/pic/cover/c/76/ff/320427_384xY.jpg
+#&gt; 13: http://lain.bgm.tv/pic/cover/c/29/74/240741_SaM3P.jpg
+#&gt; 14: http://lain.bgm.tv/pic/cover/c/34/90/241267_g7zl4.jpg
+#&gt; 15: http://lain.bgm.tv/pic/cover/c/d1/ae/289915_Z2H5D.jpg
+#&gt; 16: http://lain.bgm.tv/pic/cover/c/bd/ab/308025_NZZ0i.jpg
+#&gt; 17: http://lain.bgm.tv/pic/cover/c/c0/8b/318582_1xLIq.jpg
+#&gt; 18: http://lain.bgm.tv/pic/cover/c/0b/e9/320733_ynyx8.jpg
+#&gt; 19: http://lain.bgm.tv/pic/cover/c/39/ad/253046_IjUfm.jpg
+#&gt; 20: http://lain.bgm.tv/pic/cover/c/07/5a/266349_2nNdX.jpg
+#&gt; 21: http://lain.bgm.tv/pic/cover/c/20/f7/292273_15ZAe.jpg
+#&gt; 22: http://lain.bgm.tv/pic/cover/c/e2/c9/294878_sEu23.jpg
+#&gt; 23: http://lain.bgm.tv/pic/cover/c/90/61/297624_nANa9.jpg
+#&gt; 24: http://lain.bgm.tv/pic/cover/c/00/0c/306909_UHI5H.jpg
+#&gt; 25: http://lain.bgm.tv/pic/cover/c/33/65/310899_WL100.jpg
+#&gt; 26: http://lain.bgm.tv/pic/cover/c/82/5d/311600_7gIfi.jpg
+#&gt; 27: http://lain.bgm.tv/pic/cover/c/e9/15/312314_2X5XZ.jpg
+#&gt; 28: http://lain.bgm.tv/pic/cover/c/40/2a/312966_7is7r.jpg
+#&gt; 29: http://lain.bgm.tv/pic/cover/c/8b/a0/316182_gyeG6.jpg
+#&gt; 30: http://lain.bgm.tv/pic/cover/c/8e/b8/231210_yXgIt.jpg
+#&gt; 31: http://lain.bgm.tv/pic/cover/c/18/07/269550_8Hr3Z.jpg
+#&gt; 32: http://lain.bgm.tv/pic/cover/c/0f/a4/282372_hzhyM.jpg
+#&gt; 33: http://lain.bgm.tv/pic/cover/c/61/f8/292712_pACzh.jpg
+#&gt; 34: http://lain.bgm.tv/pic/cover/c/1e/83/297969_Cn5jJ.jpg
+#&gt; 35: http://lain.bgm.tv/pic/cover/c/87/96/302076_Oixgz.jpg
+#&gt; 36: http://lain.bgm.tv/pic/cover/c/df/e0/303157_7snGf.jpg
+#&gt; 37: http://lain.bgm.tv/pic/cover/c/4c/14/316789_kzwkB.jpg
+#&gt; 38: http://lain.bgm.tv/pic/cover/c/b3/93/317293_7vtCy.jpg
+#&gt; 39: http://lain.bgm.tv/pic/cover/c/e2/65/317338_3Ng8E.jpg
+#&gt; 40: http://lain.bgm.tv/pic/cover/c/16/d3/318509_ZVVXi.jpg
+#&gt; 41: http://lain.bgm.tv/pic/cover/c/49/e6/320844_lOMg9.jpg
+#&gt; 42: http://lain.bgm.tv/pic/cover/c/f6/fb/219141_tcJbf.jpg
+#&gt; 43: http://lain.bgm.tv/pic/cover/c/3a/84/242739_Xox6W.jpg
+#&gt; 44: http://lain.bgm.tv/pic/cover/c/b6/d5/291412_G5EHw.jpg
+#&gt; 45: http://lain.bgm.tv/pic/cover/c/99/17/292970_mxMxx.jpg
+#&gt; 46: http://lain.bgm.tv/pic/cover/c/60/fe/294993_JrrzK.jpg
+#&gt; 47: http://lain.bgm.tv/pic/cover/c/e3/b4/295421_ScQzi.jpg
+#&gt; 48: http://lain.bgm.tv/pic/cover/c/39/b3/295862_zls1R.jpg
+#&gt; 49: http://lain.bgm.tv/pic/cover/c/c5/ed/296078_w19O3.jpg
+#&gt; 50: http://lain.bgm.tv/pic/cover/c/a4/32/297340_20R22.jpg
+#&gt; 51: http://lain.bgm.tv/pic/cover/c/ec/3c/299372_H4l74.jpg
+#&gt; 52: http://lain.bgm.tv/pic/cover/c/08/01/301469_cPTHi.jpg
+#&gt; 53: http://lain.bgm.tv/pic/cover/c/66/50/301541_p2z4K.jpg
+#&gt; 54: http://lain.bgm.tv/pic/cover/c/fe/ed/305621_C9K71.jpg
+#&gt; 55: http://lain.bgm.tv/pic/cover/c/f6/78/316107_P7AWf.jpg
+#&gt; 56: http://lain.bgm.tv/pic/cover/c/9f/5c/316796_s2718.jpg
+#&gt; 57: http://lain.bgm.tv/pic/cover/c/c9/35/317620_rbSsk.jpg
+#&gt; 58: http://lain.bgm.tv/pic/cover/c/69/02/319284_rXJ3i.jpg
+#&gt; 59:    http://lain.bgm.tv/pic/cover/c/01/88/899_Q3F3X.jpg
+#&gt; 60: http://lain.bgm.tv/pic/cover/c/0a/16/260770_4548k.jpg
+#&gt; 61: http://lain.bgm.tv/pic/cover/c/95/88/289101_Y6BuG.jpg
+#&gt; 62: http://lain.bgm.tv/pic/cover/c/43/a5/292233_Xzs8x.jpg
+#&gt; 63: http://lain.bgm.tv/pic/cover/c/a7/35/296659_o709D.jpg
+#&gt; 64: http://lain.bgm.tv/pic/cover/c/46/61/296980_ZskjE.jpg
+#&gt; 65: http://lain.bgm.tv/pic/cover/c/ec/05/301369_Yyp7J.jpg
+#&gt; 66: http://lain.bgm.tv/pic/cover/c/28/85/305114_2JS2j.jpg
+#&gt; 67: http://lain.bgm.tv/pic/cover/c/84/ad/306193_cb2Hh.jpg
+#&gt; 68: http://lain.bgm.tv/pic/cover/c/10/d5/306429_aIAux.jpg
+#&gt; 69: http://lain.bgm.tv/pic/cover/c/bf/2a/312979_2p9Ln.jpg
+#&gt; 70: http://lain.bgm.tv/pic/cover/c/a5/52/313936_g69Qs.jpg
+#&gt; 71: http://lain.bgm.tv/pic/cover/c/f6/7f/317002_MF07s.jpg
+#&gt; 72:    http://lain.bgm.tv/pic/cover/c/92/97/975_YKuWd.jpg
+#&gt; 73: http://lain.bgm.tv/pic/cover/c/f5/20/285899_rYFVV.jpg
+#&gt; 74: http://lain.bgm.tv/pic/cover/c/bd/30/291203_KSbIk.jpg
+#&gt; 75: http://lain.bgm.tv/pic/cover/c/76/c9/297022_37o57.jpg
+#&gt; 76: http://lain.bgm.tv/pic/cover/c/8a/1e/300685_RRrUx.jpg
+#&gt; 77: http://lain.bgm.tv/pic/cover/c/02/7e/302418_0sZ4N.jpg
+#&gt; 78: http://lain.bgm.tv/pic/cover/c/83/99/311911_Y11vG.jpg
+#&gt; 79: http://lain.bgm.tv/pic/cover/c/10/b2/313634_Iu9v6.jpg
+#&gt; 80: http://lain.bgm.tv/pic/cover/c/37/62/314312_f0b2q.jpg
+#&gt; 81: http://lain.bgm.tv/pic/cover/c/cd/2f/315773_NrTbn.jpg
+#&gt; 82: http://lain.bgm.tv/pic/cover/c/b8/c4/316103_LD2VT.jpg
+#&gt; 83: http://lain.bgm.tv/pic/cover/c/1a/68/316106_xFf9J.jpg
+#&gt; 84: http://lain.bgm.tv/pic/cover/c/24/e8/316621_jY8Dx.jpg
+#&gt; 85: http://lain.bgm.tv/pic/cover/c/a6/4f/316787_ppp1P.jpg
+#&gt; 86: http://lain.bgm.tv/pic/cover/c/da/24/317337_4H4oH.jpg
+#&gt;                                             images.common
 #&gt;                                             images.medium
 #&gt;  1: http://lain.bgm.tv/pic/cover/m/0d/2e/279059_NNOnk.jpg
 #&gt;  2: http://lain.bgm.tv/pic/cover/m/72/f9/285901_94tQr.jpg
@@ -245,6 +867,81 @@ the <code>format</code> option.</p>
 #&gt; 10: http://lain.bgm.tv/pic/cover/m/2a/be/317276_YVLrl.jpg
 #&gt; 11: http://lain.bgm.tv/pic/cover/m/ab/9a/317653_mHcgo.jpg
 #&gt; 12: http://lain.bgm.tv/pic/cover/m/76/ff/320427_384xY.jpg
+#&gt; 13: http://lain.bgm.tv/pic/cover/m/29/74/240741_SaM3P.jpg
+#&gt; 14: http://lain.bgm.tv/pic/cover/m/34/90/241267_g7zl4.jpg
+#&gt; 15: http://lain.bgm.tv/pic/cover/m/d1/ae/289915_Z2H5D.jpg
+#&gt; 16: http://lain.bgm.tv/pic/cover/m/bd/ab/308025_NZZ0i.jpg
+#&gt; 17: http://lain.bgm.tv/pic/cover/m/c0/8b/318582_1xLIq.jpg
+#&gt; 18: http://lain.bgm.tv/pic/cover/m/0b/e9/320733_ynyx8.jpg
+#&gt; 19: http://lain.bgm.tv/pic/cover/m/39/ad/253046_IjUfm.jpg
+#&gt; 20: http://lain.bgm.tv/pic/cover/m/07/5a/266349_2nNdX.jpg
+#&gt; 21: http://lain.bgm.tv/pic/cover/m/20/f7/292273_15ZAe.jpg
+#&gt; 22: http://lain.bgm.tv/pic/cover/m/e2/c9/294878_sEu23.jpg
+#&gt; 23: http://lain.bgm.tv/pic/cover/m/90/61/297624_nANa9.jpg
+#&gt; 24: http://lain.bgm.tv/pic/cover/m/00/0c/306909_UHI5H.jpg
+#&gt; 25: http://lain.bgm.tv/pic/cover/m/33/65/310899_WL100.jpg
+#&gt; 26: http://lain.bgm.tv/pic/cover/m/82/5d/311600_7gIfi.jpg
+#&gt; 27: http://lain.bgm.tv/pic/cover/m/e9/15/312314_2X5XZ.jpg
+#&gt; 28: http://lain.bgm.tv/pic/cover/m/40/2a/312966_7is7r.jpg
+#&gt; 29: http://lain.bgm.tv/pic/cover/m/8b/a0/316182_gyeG6.jpg
+#&gt; 30: http://lain.bgm.tv/pic/cover/m/8e/b8/231210_yXgIt.jpg
+#&gt; 31: http://lain.bgm.tv/pic/cover/m/18/07/269550_8Hr3Z.jpg
+#&gt; 32: http://lain.bgm.tv/pic/cover/m/0f/a4/282372_hzhyM.jpg
+#&gt; 33: http://lain.bgm.tv/pic/cover/m/61/f8/292712_pACzh.jpg
+#&gt; 34: http://lain.bgm.tv/pic/cover/m/1e/83/297969_Cn5jJ.jpg
+#&gt; 35: http://lain.bgm.tv/pic/cover/m/87/96/302076_Oixgz.jpg
+#&gt; 36: http://lain.bgm.tv/pic/cover/m/df/e0/303157_7snGf.jpg
+#&gt; 37: http://lain.bgm.tv/pic/cover/m/4c/14/316789_kzwkB.jpg
+#&gt; 38: http://lain.bgm.tv/pic/cover/m/b3/93/317293_7vtCy.jpg
+#&gt; 39: http://lain.bgm.tv/pic/cover/m/e2/65/317338_3Ng8E.jpg
+#&gt; 40: http://lain.bgm.tv/pic/cover/m/16/d3/318509_ZVVXi.jpg
+#&gt; 41: http://lain.bgm.tv/pic/cover/m/49/e6/320844_lOMg9.jpg
+#&gt; 42: http://lain.bgm.tv/pic/cover/m/f6/fb/219141_tcJbf.jpg
+#&gt; 43: http://lain.bgm.tv/pic/cover/m/3a/84/242739_Xox6W.jpg
+#&gt; 44: http://lain.bgm.tv/pic/cover/m/b6/d5/291412_G5EHw.jpg
+#&gt; 45: http://lain.bgm.tv/pic/cover/m/99/17/292970_mxMxx.jpg
+#&gt; 46: http://lain.bgm.tv/pic/cover/m/60/fe/294993_JrrzK.jpg
+#&gt; 47: http://lain.bgm.tv/pic/cover/m/e3/b4/295421_ScQzi.jpg
+#&gt; 48: http://lain.bgm.tv/pic/cover/m/39/b3/295862_zls1R.jpg
+#&gt; 49: http://lain.bgm.tv/pic/cover/m/c5/ed/296078_w19O3.jpg
+#&gt; 50: http://lain.bgm.tv/pic/cover/m/a4/32/297340_20R22.jpg
+#&gt; 51: http://lain.bgm.tv/pic/cover/m/ec/3c/299372_H4l74.jpg
+#&gt; 52: http://lain.bgm.tv/pic/cover/m/08/01/301469_cPTHi.jpg
+#&gt; 53: http://lain.bgm.tv/pic/cover/m/66/50/301541_p2z4K.jpg
+#&gt; 54: http://lain.bgm.tv/pic/cover/m/fe/ed/305621_C9K71.jpg
+#&gt; 55: http://lain.bgm.tv/pic/cover/m/f6/78/316107_P7AWf.jpg
+#&gt; 56: http://lain.bgm.tv/pic/cover/m/9f/5c/316796_s2718.jpg
+#&gt; 57: http://lain.bgm.tv/pic/cover/m/c9/35/317620_rbSsk.jpg
+#&gt; 58: http://lain.bgm.tv/pic/cover/m/69/02/319284_rXJ3i.jpg
+#&gt; 59:    http://lain.bgm.tv/pic/cover/m/01/88/899_Q3F3X.jpg
+#&gt; 60: http://lain.bgm.tv/pic/cover/m/0a/16/260770_4548k.jpg
+#&gt; 61: http://lain.bgm.tv/pic/cover/m/95/88/289101_Y6BuG.jpg
+#&gt; 62: http://lain.bgm.tv/pic/cover/m/43/a5/292233_Xzs8x.jpg
+#&gt; 63: http://lain.bgm.tv/pic/cover/m/a7/35/296659_o709D.jpg
+#&gt; 64: http://lain.bgm.tv/pic/cover/m/46/61/296980_ZskjE.jpg
+#&gt; 65: http://lain.bgm.tv/pic/cover/m/ec/05/301369_Yyp7J.jpg
+#&gt; 66: http://lain.bgm.tv/pic/cover/m/28/85/305114_2JS2j.jpg
+#&gt; 67: http://lain.bgm.tv/pic/cover/m/84/ad/306193_cb2Hh.jpg
+#&gt; 68: http://lain.bgm.tv/pic/cover/m/10/d5/306429_aIAux.jpg
+#&gt; 69: http://lain.bgm.tv/pic/cover/m/bf/2a/312979_2p9Ln.jpg
+#&gt; 70: http://lain.bgm.tv/pic/cover/m/a5/52/313936_g69Qs.jpg
+#&gt; 71: http://lain.bgm.tv/pic/cover/m/f6/7f/317002_MF07s.jpg
+#&gt; 72:    http://lain.bgm.tv/pic/cover/m/92/97/975_YKuWd.jpg
+#&gt; 73: http://lain.bgm.tv/pic/cover/m/f5/20/285899_rYFVV.jpg
+#&gt; 74: http://lain.bgm.tv/pic/cover/m/bd/30/291203_KSbIk.jpg
+#&gt; 75: http://lain.bgm.tv/pic/cover/m/76/c9/297022_37o57.jpg
+#&gt; 76: http://lain.bgm.tv/pic/cover/m/8a/1e/300685_RRrUx.jpg
+#&gt; 77: http://lain.bgm.tv/pic/cover/m/02/7e/302418_0sZ4N.jpg
+#&gt; 78: http://lain.bgm.tv/pic/cover/m/83/99/311911_Y11vG.jpg
+#&gt; 79: http://lain.bgm.tv/pic/cover/m/10/b2/313634_Iu9v6.jpg
+#&gt; 80: http://lain.bgm.tv/pic/cover/m/37/62/314312_f0b2q.jpg
+#&gt; 81: http://lain.bgm.tv/pic/cover/m/cd/2f/315773_NrTbn.jpg
+#&gt; 82: http://lain.bgm.tv/pic/cover/m/b8/c4/316103_LD2VT.jpg
+#&gt; 83: http://lain.bgm.tv/pic/cover/m/1a/68/316106_xFf9J.jpg
+#&gt; 84: http://lain.bgm.tv/pic/cover/m/24/e8/316621_jY8Dx.jpg
+#&gt; 85: http://lain.bgm.tv/pic/cover/m/a6/4f/316787_ppp1P.jpg
+#&gt; 86: http://lain.bgm.tv/pic/cover/m/da/24/317337_4H4oH.jpg
+#&gt;                                             images.medium
 #&gt;                                              images.small
 #&gt;  1: http://lain.bgm.tv/pic/cover/s/0d/2e/279059_NNOnk.jpg
 #&gt;  2: http://lain.bgm.tv/pic/cover/s/72/f9/285901_94tQr.jpg
@@ -258,19 +955,169 @@ the <code>format</code> option.</p>
 #&gt; 10: http://lain.bgm.tv/pic/cover/s/2a/be/317276_YVLrl.jpg
 #&gt; 11: http://lain.bgm.tv/pic/cover/s/ab/9a/317653_mHcgo.jpg
 #&gt; 12: http://lain.bgm.tv/pic/cover/s/76/ff/320427_384xY.jpg
+#&gt; 13: http://lain.bgm.tv/pic/cover/s/29/74/240741_SaM3P.jpg
+#&gt; 14: http://lain.bgm.tv/pic/cover/s/34/90/241267_g7zl4.jpg
+#&gt; 15: http://lain.bgm.tv/pic/cover/s/d1/ae/289915_Z2H5D.jpg
+#&gt; 16: http://lain.bgm.tv/pic/cover/s/bd/ab/308025_NZZ0i.jpg
+#&gt; 17: http://lain.bgm.tv/pic/cover/s/c0/8b/318582_1xLIq.jpg
+#&gt; 18: http://lain.bgm.tv/pic/cover/s/0b/e9/320733_ynyx8.jpg
+#&gt; 19: http://lain.bgm.tv/pic/cover/s/39/ad/253046_IjUfm.jpg
+#&gt; 20: http://lain.bgm.tv/pic/cover/s/07/5a/266349_2nNdX.jpg
+#&gt; 21: http://lain.bgm.tv/pic/cover/s/20/f7/292273_15ZAe.jpg
+#&gt; 22: http://lain.bgm.tv/pic/cover/s/e2/c9/294878_sEu23.jpg
+#&gt; 23: http://lain.bgm.tv/pic/cover/s/90/61/297624_nANa9.jpg
+#&gt; 24: http://lain.bgm.tv/pic/cover/s/00/0c/306909_UHI5H.jpg
+#&gt; 25: http://lain.bgm.tv/pic/cover/s/33/65/310899_WL100.jpg
+#&gt; 26: http://lain.bgm.tv/pic/cover/s/82/5d/311600_7gIfi.jpg
+#&gt; 27: http://lain.bgm.tv/pic/cover/s/e9/15/312314_2X5XZ.jpg
+#&gt; 28: http://lain.bgm.tv/pic/cover/s/40/2a/312966_7is7r.jpg
+#&gt; 29: http://lain.bgm.tv/pic/cover/s/8b/a0/316182_gyeG6.jpg
+#&gt; 30: http://lain.bgm.tv/pic/cover/s/8e/b8/231210_yXgIt.jpg
+#&gt; 31: http://lain.bgm.tv/pic/cover/s/18/07/269550_8Hr3Z.jpg
+#&gt; 32: http://lain.bgm.tv/pic/cover/s/0f/a4/282372_hzhyM.jpg
+#&gt; 33: http://lain.bgm.tv/pic/cover/s/61/f8/292712_pACzh.jpg
+#&gt; 34: http://lain.bgm.tv/pic/cover/s/1e/83/297969_Cn5jJ.jpg
+#&gt; 35: http://lain.bgm.tv/pic/cover/s/87/96/302076_Oixgz.jpg
+#&gt; 36: http://lain.bgm.tv/pic/cover/s/df/e0/303157_7snGf.jpg
+#&gt; 37: http://lain.bgm.tv/pic/cover/s/4c/14/316789_kzwkB.jpg
+#&gt; 38: http://lain.bgm.tv/pic/cover/s/b3/93/317293_7vtCy.jpg
+#&gt; 39: http://lain.bgm.tv/pic/cover/s/e2/65/317338_3Ng8E.jpg
+#&gt; 40: http://lain.bgm.tv/pic/cover/s/16/d3/318509_ZVVXi.jpg
+#&gt; 41: http://lain.bgm.tv/pic/cover/s/49/e6/320844_lOMg9.jpg
+#&gt; 42: http://lain.bgm.tv/pic/cover/s/f6/fb/219141_tcJbf.jpg
+#&gt; 43: http://lain.bgm.tv/pic/cover/s/3a/84/242739_Xox6W.jpg
+#&gt; 44: http://lain.bgm.tv/pic/cover/s/b6/d5/291412_G5EHw.jpg
+#&gt; 45: http://lain.bgm.tv/pic/cover/s/99/17/292970_mxMxx.jpg
+#&gt; 46: http://lain.bgm.tv/pic/cover/s/60/fe/294993_JrrzK.jpg
+#&gt; 47: http://lain.bgm.tv/pic/cover/s/e3/b4/295421_ScQzi.jpg
+#&gt; 48: http://lain.bgm.tv/pic/cover/s/39/b3/295862_zls1R.jpg
+#&gt; 49: http://lain.bgm.tv/pic/cover/s/c5/ed/296078_w19O3.jpg
+#&gt; 50: http://lain.bgm.tv/pic/cover/s/a4/32/297340_20R22.jpg
+#&gt; 51: http://lain.bgm.tv/pic/cover/s/ec/3c/299372_H4l74.jpg
+#&gt; 52: http://lain.bgm.tv/pic/cover/s/08/01/301469_cPTHi.jpg
+#&gt; 53: http://lain.bgm.tv/pic/cover/s/66/50/301541_p2z4K.jpg
+#&gt; 54: http://lain.bgm.tv/pic/cover/s/fe/ed/305621_C9K71.jpg
+#&gt; 55: http://lain.bgm.tv/pic/cover/s/f6/78/316107_P7AWf.jpg
+#&gt; 56: http://lain.bgm.tv/pic/cover/s/9f/5c/316796_s2718.jpg
+#&gt; 57: http://lain.bgm.tv/pic/cover/s/c9/35/317620_rbSsk.jpg
+#&gt; 58: http://lain.bgm.tv/pic/cover/s/69/02/319284_rXJ3i.jpg
+#&gt; 59:    http://lain.bgm.tv/pic/cover/s/01/88/899_Q3F3X.jpg
+#&gt; 60: http://lain.bgm.tv/pic/cover/s/0a/16/260770_4548k.jpg
+#&gt; 61: http://lain.bgm.tv/pic/cover/s/95/88/289101_Y6BuG.jpg
+#&gt; 62: http://lain.bgm.tv/pic/cover/s/43/a5/292233_Xzs8x.jpg
+#&gt; 63: http://lain.bgm.tv/pic/cover/s/a7/35/296659_o709D.jpg
+#&gt; 64: http://lain.bgm.tv/pic/cover/s/46/61/296980_ZskjE.jpg
+#&gt; 65: http://lain.bgm.tv/pic/cover/s/ec/05/301369_Yyp7J.jpg
+#&gt; 66: http://lain.bgm.tv/pic/cover/s/28/85/305114_2JS2j.jpg
+#&gt; 67: http://lain.bgm.tv/pic/cover/s/84/ad/306193_cb2Hh.jpg
+#&gt; 68: http://lain.bgm.tv/pic/cover/s/10/d5/306429_aIAux.jpg
+#&gt; 69: http://lain.bgm.tv/pic/cover/s/bf/2a/312979_2p9Ln.jpg
+#&gt; 70: http://lain.bgm.tv/pic/cover/s/a5/52/313936_g69Qs.jpg
+#&gt; 71: http://lain.bgm.tv/pic/cover/s/f6/7f/317002_MF07s.jpg
+#&gt; 72:    http://lain.bgm.tv/pic/cover/s/92/97/975_YKuWd.jpg
+#&gt; 73: http://lain.bgm.tv/pic/cover/s/f5/20/285899_rYFVV.jpg
+#&gt; 74: http://lain.bgm.tv/pic/cover/s/bd/30/291203_KSbIk.jpg
+#&gt; 75: http://lain.bgm.tv/pic/cover/s/76/c9/297022_37o57.jpg
+#&gt; 76: http://lain.bgm.tv/pic/cover/s/8a/1e/300685_RRrUx.jpg
+#&gt; 77: http://lain.bgm.tv/pic/cover/s/02/7e/302418_0sZ4N.jpg
+#&gt; 78: http://lain.bgm.tv/pic/cover/s/83/99/311911_Y11vG.jpg
+#&gt; 79: http://lain.bgm.tv/pic/cover/s/10/b2/313634_Iu9v6.jpg
+#&gt; 80: http://lain.bgm.tv/pic/cover/s/37/62/314312_f0b2q.jpg
+#&gt; 81: http://lain.bgm.tv/pic/cover/s/cd/2f/315773_NrTbn.jpg
+#&gt; 82: http://lain.bgm.tv/pic/cover/s/b8/c4/316103_LD2VT.jpg
+#&gt; 83: http://lain.bgm.tv/pic/cover/s/1a/68/316106_xFf9J.jpg
+#&gt; 84: http://lain.bgm.tv/pic/cover/s/24/e8/316621_jY8Dx.jpg
+#&gt; 85: http://lain.bgm.tv/pic/cover/s/a6/4f/316787_ppp1P.jpg
+#&gt; 86: http://lain.bgm.tv/pic/cover/s/da/24/317337_4H4oH.jpg
+#&gt;                                              images.small
 #&gt;                                               images.grid collection.doing
 #&gt;  1: http://lain.bgm.tv/pic/cover/g/0d/2e/279059_NNOnk.jpg              738
 #&gt;  2: http://lain.bgm.tv/pic/cover/g/72/f9/285901_94tQr.jpg              468
 #&gt;  3: http://lain.bgm.tv/pic/cover/g/8a/f4/289131_wg9Cd.jpg               44
-#&gt;  4: http://lain.bgm.tv/pic/cover/g/b1/c3/290426_z4GRp.jpg             1316
+#&gt;  4: http://lain.bgm.tv/pic/cover/g/b1/c3/290426_z4GRp.jpg             1317
 #&gt;  5: http://lain.bgm.tv/pic/cover/g/40/5b/301233_mq8zr.jpg              860
 #&gt;  6: http://lain.bgm.tv/pic/cover/g/49/41/309910_jm70D.jpg              352
 #&gt;  7: http://lain.bgm.tv/pic/cover/g/da/bc/315039_rRr01.jpg                5
 #&gt;  8: http://lain.bgm.tv/pic/cover/g/20/a9/315133_1tyTo.jpg                3
 #&gt;  9: http://lain.bgm.tv/pic/cover/g/2f/64/316183_1C1D7.jpg                1
-#&gt; 10: http://lain.bgm.tv/pic/cover/g/2a/be/317276_YVLrl.jpg             &lt;NA&gt;
+#&gt; 10: http://lain.bgm.tv/pic/cover/g/2a/be/317276_YVLrl.jpg               NA
 #&gt; 11: http://lain.bgm.tv/pic/cover/g/ab/9a/317653_mHcgo.jpg                3
-#&gt; 12: http://lain.bgm.tv/pic/cover/g/76/ff/320427_384xY.jpg             &lt;NA&gt;</div></pre>
+#&gt; 12: http://lain.bgm.tv/pic/cover/g/76/ff/320427_384xY.jpg               NA
+#&gt; 13: http://lain.bgm.tv/pic/cover/g/29/74/240741_SaM3P.jpg               10
+#&gt; 14: http://lain.bgm.tv/pic/cover/g/34/90/241267_g7zl4.jpg              178
+#&gt; 15: http://lain.bgm.tv/pic/cover/g/d1/ae/289915_Z2H5D.jpg              456
+#&gt; 16: http://lain.bgm.tv/pic/cover/g/bd/ab/308025_NZZ0i.jpg               18
+#&gt; 17: http://lain.bgm.tv/pic/cover/g/c0/8b/318582_1xLIq.jpg                1
+#&gt; 18: http://lain.bgm.tv/pic/cover/g/0b/e9/320733_ynyx8.jpg                4
+#&gt; 19: http://lain.bgm.tv/pic/cover/g/39/ad/253046_IjUfm.jpg              447
+#&gt; 20: http://lain.bgm.tv/pic/cover/g/07/5a/266349_2nNdX.jpg               26
+#&gt; 21: http://lain.bgm.tv/pic/cover/g/20/f7/292273_15ZAe.jpg              825
+#&gt; 22: http://lain.bgm.tv/pic/cover/g/e2/c9/294878_sEu23.jpg                7
+#&gt; 23: http://lain.bgm.tv/pic/cover/g/90/61/297624_nANa9.jpg              750
+#&gt; 24: http://lain.bgm.tv/pic/cover/g/00/0c/306909_UHI5H.jpg                3
+#&gt; 25: http://lain.bgm.tv/pic/cover/g/33/65/310899_WL100.jpg                6
+#&gt; 26: http://lain.bgm.tv/pic/cover/g/82/5d/311600_7gIfi.jpg              187
+#&gt; 27: http://lain.bgm.tv/pic/cover/g/e9/15/312314_2X5XZ.jpg                9
+#&gt; 28: http://lain.bgm.tv/pic/cover/g/40/2a/312966_7is7r.jpg              131
+#&gt; 29: http://lain.bgm.tv/pic/cover/g/8b/a0/316182_gyeG6.jpg               54
+#&gt; 30: http://lain.bgm.tv/pic/cover/g/8e/b8/231210_yXgIt.jpg               75
+#&gt; 31: http://lain.bgm.tv/pic/cover/g/18/07/269550_8Hr3Z.jpg               35
+#&gt; 32: http://lain.bgm.tv/pic/cover/g/0f/a4/282372_hzhyM.jpg             1646
+#&gt; 33: http://lain.bgm.tv/pic/cover/g/61/f8/292712_pACzh.jpg             1513
+#&gt; 34: http://lain.bgm.tv/pic/cover/g/1e/83/297969_Cn5jJ.jpg             1273
+#&gt; 35: http://lain.bgm.tv/pic/cover/g/87/96/302076_Oixgz.jpg             1506
+#&gt; 36: http://lain.bgm.tv/pic/cover/g/df/e0/303157_7snGf.jpg              170
+#&gt; 37: http://lain.bgm.tv/pic/cover/g/4c/14/316789_kzwkB.jpg                8
+#&gt; 38: http://lain.bgm.tv/pic/cover/g/b3/93/317293_7vtCy.jpg               NA
+#&gt; 39: http://lain.bgm.tv/pic/cover/g/e2/65/317338_3Ng8E.jpg               NA
+#&gt; 40: http://lain.bgm.tv/pic/cover/g/16/d3/318509_ZVVXi.jpg               11
+#&gt; 41: http://lain.bgm.tv/pic/cover/g/49/e6/320844_lOMg9.jpg               NA
+#&gt; 42: http://lain.bgm.tv/pic/cover/g/f6/fb/219141_tcJbf.jpg               51
+#&gt; 43: http://lain.bgm.tv/pic/cover/g/3a/84/242739_Xox6W.jpg               17
+#&gt; 44: http://lain.bgm.tv/pic/cover/g/b6/d5/291412_G5EHw.jpg              953
+#&gt; 45: http://lain.bgm.tv/pic/cover/g/99/17/292970_mxMxx.jpg             2392
+#&gt; 46: http://lain.bgm.tv/pic/cover/g/60/fe/294993_JrrzK.jpg             2217
+#&gt; 47: http://lain.bgm.tv/pic/cover/g/e3/b4/295421_ScQzi.jpg              497
+#&gt; 48: http://lain.bgm.tv/pic/cover/g/39/b3/295862_zls1R.jpg              255
+#&gt; 49: http://lain.bgm.tv/pic/cover/g/c5/ed/296078_w19O3.jpg              164
+#&gt; 50: http://lain.bgm.tv/pic/cover/g/a4/32/297340_20R22.jpg              238
+#&gt; 51: http://lain.bgm.tv/pic/cover/g/ec/3c/299372_H4l74.jpg               97
+#&gt; 52: http://lain.bgm.tv/pic/cover/g/08/01/301469_cPTHi.jpg              746
+#&gt; 53: http://lain.bgm.tv/pic/cover/g/66/50/301541_p2z4K.jpg             1787
+#&gt; 54: http://lain.bgm.tv/pic/cover/g/fe/ed/305621_C9K71.jpg              140
+#&gt; 55: http://lain.bgm.tv/pic/cover/g/f6/78/316107_P7AWf.jpg                7
+#&gt; 56: http://lain.bgm.tv/pic/cover/g/9f/5c/316796_s2718.jpg                1
+#&gt; 57: http://lain.bgm.tv/pic/cover/g/c9/35/317620_rbSsk.jpg               NA
+#&gt; 58: http://lain.bgm.tv/pic/cover/g/69/02/319284_rXJ3i.jpg                8
+#&gt; 59:    http://lain.bgm.tv/pic/cover/g/01/88/899_Q3F3X.jpg             3529
+#&gt; 60: http://lain.bgm.tv/pic/cover/g/0a/16/260770_4548k.jpg             1230
+#&gt; 61: http://lain.bgm.tv/pic/cover/g/95/88/289101_Y6BuG.jpg               76
+#&gt; 62: http://lain.bgm.tv/pic/cover/g/43/a5/292233_Xzs8x.jpg              718
+#&gt; 63: http://lain.bgm.tv/pic/cover/g/a7/35/296659_o709D.jpg              806
+#&gt; 64: http://lain.bgm.tv/pic/cover/g/46/61/296980_ZskjE.jpg              189
+#&gt; 65: http://lain.bgm.tv/pic/cover/g/ec/05/301369_Yyp7J.jpg              693
+#&gt; 66: http://lain.bgm.tv/pic/cover/g/28/85/305114_2JS2j.jpg              352
+#&gt; 67: http://lain.bgm.tv/pic/cover/g/84/ad/306193_cb2Hh.jpg              460
+#&gt; 68: http://lain.bgm.tv/pic/cover/g/10/d5/306429_aIAux.jpg             2709
+#&gt; 69: http://lain.bgm.tv/pic/cover/g/bf/2a/312979_2p9Ln.jpg              424
+#&gt; 70: http://lain.bgm.tv/pic/cover/g/a5/52/313936_g69Qs.jpg               24
+#&gt; 71: http://lain.bgm.tv/pic/cover/g/f6/7f/317002_MF07s.jpg               10
+#&gt; 72:    http://lain.bgm.tv/pic/cover/g/92/97/975_YKuWd.jpg             5938
+#&gt; 73: http://lain.bgm.tv/pic/cover/g/f5/20/285899_rYFVV.jpg              314
+#&gt; 74: http://lain.bgm.tv/pic/cover/g/bd/30/291203_KSbIk.jpg                9
+#&gt; 75: http://lain.bgm.tv/pic/cover/g/76/c9/297022_37o57.jpg              504
+#&gt; 76: http://lain.bgm.tv/pic/cover/g/8a/1e/300685_RRrUx.jpg              478
+#&gt; 77: http://lain.bgm.tv/pic/cover/g/02/7e/302418_0sZ4N.jpg             1103
+#&gt; 78: http://lain.bgm.tv/pic/cover/g/83/99/311911_Y11vG.jpg                4
+#&gt; 79: http://lain.bgm.tv/pic/cover/g/10/b2/313634_Iu9v6.jpg               51
+#&gt; 80: http://lain.bgm.tv/pic/cover/g/37/62/314312_f0b2q.jpg               46
+#&gt; 81: http://lain.bgm.tv/pic/cover/g/cd/2f/315773_NrTbn.jpg               NA
+#&gt; 82: http://lain.bgm.tv/pic/cover/g/b8/c4/316103_LD2VT.jpg                2
+#&gt; 83: http://lain.bgm.tv/pic/cover/g/1a/68/316106_xFf9J.jpg               53
+#&gt; 84: http://lain.bgm.tv/pic/cover/g/24/e8/316621_jY8Dx.jpg                1
+#&gt; 85: http://lain.bgm.tv/pic/cover/g/a6/4f/316787_ppp1P.jpg               16
+#&gt; 86: http://lain.bgm.tv/pic/cover/g/da/24/317337_4H4oH.jpg               NA
+#&gt;                                               images.grid collection.doing</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
