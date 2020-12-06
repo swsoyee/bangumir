@@ -9,8 +9,7 @@ bgm_calendar(format = c("list", "table", "default"))
 \arguments{
 \item{format}{Result will be a list of json data when set to \code{list}
 (default), \code{response()} object when set to \code{default}. Set to
-\code{table} will convert the episode list to a \code{data.frame} for ease of
-use.}
+\code{table} will convert the list to a \code{data.frame} for ease of use.}
 }
 \value{
 A list of response content or a \code{response()} object according to
@@ -20,8 +19,5 @@ the \code{format} option.
 Get bangumi calendar
 }
 \examples{
-result <- bgm_calendar("table")
-
-# Bangumi list on Monday
-result$mon
+bgm_calendar("table")
 }
