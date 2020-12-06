@@ -59,10 +59,10 @@ fitered <- result[
     )
 ]
 
-# order and get the best 20
+# order by watching user count and get the best 20
 final <- head(fitered[order(-Watching)], n = 20)
 
-# order by watching user count and show the result
+# display the result
 knitr::kable(final, row.names = TRUE)
 ```
 
