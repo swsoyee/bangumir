@@ -117,10 +117,10 @@
     <span class="op">)</span>
 <span class="op">]</span>
 
-<span class="co"># order and get the best 20</span>
+<span class="co"># order by watching user count and get the best 20</span>
 <span class="va">final</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">fitered</span><span class="op">[</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setorder.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">Watching</span><span class="op">)</span><span class="op">]</span>, n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span>
 
-<span class="co"># order by watching user count and show the result</span>
+<span class="co"># display the result</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">final</span>, row.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
