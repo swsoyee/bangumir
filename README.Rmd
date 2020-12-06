@@ -25,10 +25,11 @@ The goal of bangumir is to ...
 
 ## Installation
 
-You can install the released version of bangumir from [CRAN](https://CRAN.R-project.org) with:
+~~You can install the released version of bangumir from [CRAN](https://CRAN.R-project.org) with:~~
 
 ``` r
-install.packages("bangumir")
+# Not available now
+# install.packages("bangumir")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
@@ -39,14 +40,26 @@ devtools::install_github("swsoyee/bangumir")
 ```
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+1. Hottest 20 anime in this season, but air dates are later than 2020:
 
 ```{r example}
 library(bangumir)
-## basic example code
+
+result <- bgm_calendar(format = "table")
+
+# filter result
+fitered <- result[
+  air_date > "2020-01-01",
+  .(name, collection.doing, rating.total, rating.score)
+]
+
+# order and get the best 20
+final <- head(fitered[order(-collection.doing)], n = 20)
+
+# order by watching user count and show the result
+knitr::kable(final, row.names = TRUE)
 ```
 
 ## Code of Conduct
 
 Please note that the bangumir project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
-
