@@ -52,7 +52,7 @@ result <- bgm_calendar(format = "table")
 fitered <- result[
   air_date > "2020-01-01",
   .("Image" = sprintf("![%s](%s)", id, images.grid),
-    "Anime" = name,
+    "Anime" = sprintf("[%s](%s)", name, url),
     "Watching" = collection.doing,
     "Overall Rating" = rating.total,
     "Average Score" = rating.score
