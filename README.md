@@ -62,28 +62,28 @@ final <- head(fitered[order(-Watching)], n = 20)
 knitr::kable(final, row.names = TRUE)
 ```
 
-|    | Image                                                            | Anime                                                      | Watching | Overall Rating | Average Score |
-| :- | :--------------------------------------------------------------- | :--------------------------------------------------------- | -------: | -------------: | ------------: |
-| 1  | ![306429](http://lain.bgm.tv/pic/cover/g/10/d5/306429_aIAux.jpg) | [神様になった日](http://bgm.tv/subject/306429)                    |     2709 |            756 |           6.8 |
-| 2  | ![292970](http://lain.bgm.tv/pic/cover/g/99/17/292970_mxMxx.jpg) | [魔女の旅々](http://bgm.tv/subject/292970)                      |     2392 |            809 |           7.0 |
-| 3  | ![294993](http://lain.bgm.tv/pic/cover/g/60/fe/294993_JrrzK.jpg) | [呪術廻戦](http://bgm.tv/subject/294993)                       |     2219 |            662 |           7.5 |
-| 4  | ![301541](http://lain.bgm.tv/pic/cover/g/66/50/301541_p2z4K.jpg) | [トニカクカワイイ](http://bgm.tv/subject/301541)                   |     1787 |            603 |           6.5 |
-| 5  | ![282372](http://lain.bgm.tv/pic/cover/g/0f/a4/282372_hzhyM.jpg) | [安達としまむら](http://bgm.tv/subject/282372)                    |     1646 |            446 |           7.2 |
-| 6  | ![292712](http://lain.bgm.tv/pic/cover/g/61/f8/292712_pACzh.jpg) | [アサルトリリィ BOUQUET](http://bgm.tv/subject/292712)            |     1513 |            399 |           6.7 |
-| 7  | ![302076](http://lain.bgm.tv/pic/cover/g/87/96/302076_Oixgz.jpg) | [アクダマドライブ](http://bgm.tv/subject/302076)                   |     1506 |            439 |           6.8 |
-| 8  | ![290426](http://lain.bgm.tv/pic/cover/g/b1/c3/290426_z4GRp.jpg) | [魔王城でおやすみ](http://bgm.tv/subject/290426)                   |     1317 |            399 |           6.9 |
-| 9  | ![297969](http://lain.bgm.tv/pic/cover/g/1e/83/297969_Cn5jJ.jpg) | [ひぐらしのなく頃に 業](http://bgm.tv/subject/297969)                |     1272 |            283 |           7.4 |
-| 10 | ![260770](http://lain.bgm.tv/pic/cover/g/0a/16/260770_4548k.jpg) | [ご注文はうさぎですか？ BLOOM](http://bgm.tv/subject/260770)          |     1230 |            357 |           7.9 |
-| 11 | ![302418](http://lain.bgm.tv/pic/cover/g/02/7e/302418_0sZ4N.jpg) | [無能なナナ](http://bgm.tv/subject/302418)                      |     1104 |            313 |           6.6 |
-| 12 | ![291412](http://lain.bgm.tv/pic/cover/g/b6/d5/291412_G5EHw.jpg) | [ダンジョンに出会いを求めるのは間違っているだろうかⅢ](http://bgm.tv/subject/291412) |      953 |            222 |           6.9 |
-| 13 | ![301233](http://lain.bgm.tv/pic/cover/g/40/5b/301233_mq8zr.jpg) | [One Room サードシーズン](http://bgm.tv/subject/301233)           |      860 |            207 |           7.1 |
-| 14 | ![292273](http://lain.bgm.tv/pic/cover/g/20/f7/292273_15ZAe.jpg) | [キミと僕の最後の戦場、あるいは世界が始まる聖戦](http://bgm.tv/subject/292273)    |      826 |            255 |           5.9 |
-| 15 | ![296659](http://lain.bgm.tv/pic/cover/g/a7/35/296659_o709D.jpg) | [ラブライブ！虹ヶ咲学園スクールアイドル同好会](http://bgm.tv/subject/296659)     |      806 |            219 |           7.6 |
-| 16 | ![297624](http://lain.bgm.tv/pic/cover/g/90/61/297624_nANa9.jpg) | [くまクマ熊ベアー](http://bgm.tv/subject/297624)                   |      750 |            250 |           5.9 |
-| 17 | ![301469](http://lain.bgm.tv/pic/cover/g/08/01/301469_cPTHi.jpg) | [100万の命の上に俺は立っている](http://bgm.tv/subject/301469)           |      746 |            241 |           5.4 |
-| 18 | ![279059](http://lain.bgm.tv/pic/cover/g/0d/2e/279059_NNOnk.jpg) | [おちこぼれフルーツタルト](http://bgm.tv/subject/279059)               |      738 |            170 |           6.6 |
-| 19 | ![292233](http://lain.bgm.tv/pic/cover/g/43/a5/292233_Xzs8x.jpg) | [魔法科高校の劣等生 来訪者編](http://bgm.tv/subject/292233)             |      718 |            161 |           6.4 |
-| 20 | ![301369](http://lain.bgm.tv/pic/cover/g/ec/05/301369_Yyp7J.jpg) | [戦翼のシグルドリーヴァ](http://bgm.tv/subject/301369)                |      693 |            181 |           6.4 |
+|    | Image                                                            | Anime                                                            | Watching | Overall Rating | Average Score |
+| :- | :--------------------------------------------------------------- | :--------------------------------------------------------------- | -------: | -------------: | ------------: |
+| 1  | ![262897](http://lain.bgm.tv/pic/cover/g/0f/50/262897_Lfm1T.jpg) | [ゆるキャン△ SEASON 2](http://bgm.tv/subject/262897)                  |     1257 |            263 |           8.7 |
+| 2  | ![316247](http://lain.bgm.tv/pic/cover/g/aa/64/316247_a6jUR.jpg) | [Re:ゼロから始める異世界生活 2nd season 後半クール](http://bgm.tv/subject/316247) |      985 |            149 |           7.7 |
+| 3  | ![279202](http://lain.bgm.tv/pic/cover/g/64/81/279202_tMc9C.jpg) | [約束のネバーランド Season 2](http://bgm.tv/subject/279202)               |      905 |            124 |           7.3 |
+| 4  | ![297224](http://lain.bgm.tv/pic/cover/g/f4/44/297224_eE7lv.jpg) | [BEASTARS 2nd Season](http://bgm.tv/subject/297224)              |      774 |             95 |           7.6 |
+| 5  | ![315069](http://lain.bgm.tv/pic/cover/g/23/a2/315069_QlT2S.jpg) | [ホリミヤ](http://bgm.tv/subject/315069)                             |      671 |             76 |           7.3 |
+| 6  | ![301601](http://lain.bgm.tv/pic/cover/g/e6/f6/301601_9TO1X.jpg) | [裏世界ピクニック](http://bgm.tv/subject/301601)                         |      592 |             86 |           6.8 |
+| 7  | ![304065](http://lain.bgm.tv/pic/cover/g/bf/76/304065_4Crea.jpg) | [はたらく細胞BLACK](http://bgm.tv/subject/304065)                      |      591 |             67 |           7.8 |
+| 8  | ![292527](http://lain.bgm.tv/pic/cover/g/c8/42/292527_YtaWi.jpg) | [弱キャラ友崎くん](http://bgm.tv/subject/292527)                         |      590 |             89 |           5.7 |
+| 9  | ![278815](http://lain.bgm.tv/pic/cover/g/ae/11/278815_veMhu.jpg) | [はたらく細胞\!\!](http://bgm.tv/subject/278815)                       |      579 |             62 |           7.2 |
+| 10 | ![278031](http://lain.bgm.tv/pic/cover/g/e6/78/278031_202kC.jpg) | [転生したらスライムだった件 第2期](http://bgm.tv/subject/278031)                |      559 |             58 |           7.4 |
+| 11 | ![252782](http://lain.bgm.tv/pic/cover/g/83/73/252782_6PjZ1.jpg) | [蜘蛛ですが、なにか?](http://bgm.tv/subject/252782)                       |      551 |             78 |           6.6 |
+| 12 | ![277554](http://lain.bgm.tv/pic/cover/g/8b/00/277554_tG28z.jpg) | [無職転生 ～異世界行ったら本気だす～](http://bgm.tv/subject/277554)               |      544 |             43 |           8.2 |
+| 13 | ![282000](http://lain.bgm.tv/pic/cover/g/6c/00/282000_Hax2m.jpg) | [五等分の花嫁∬](http://bgm.tv/subject/282000)                          |      537 |             76 |           7.1 |
+| 14 | ![282684](http://lain.bgm.tv/pic/cover/g/ac/b7/282684_0B301.jpg) | [のんのんびより のんすとっぷ](http://bgm.tv/subject/282684)                   |      416 |             36 |           8.3 |
+| 15 | ![293193](http://lain.bgm.tv/pic/cover/g/98/e5/293193_d88nd.jpg) | [たとえばラストダンジョン前の村の少年が序盤の街で暮らすような物語](http://bgm.tv/subject/293193) |      411 |             68 |           6.3 |
+| 16 | ![315574](http://lain.bgm.tv/pic/cover/g/1c/6b/315574_tLgrT.jpg) | [ウマ娘 プリティーダービー Season 2](http://bgm.tv/subject/315574)           |      390 |             60 |           7.6 |
+| 17 | ![304827](http://lain.bgm.tv/pic/cover/g/b6/39/304827_Bbn7q.jpg) | [天地創造デザイン部](http://bgm.tv/subject/304827)                        |      343 |             56 |           6.7 |
+| 18 | ![297396](http://lain.bgm.tv/pic/cover/g/94/8c/297396_xJK3Q.jpg) | [バック・アロウ](http://bgm.tv/subject/297396)                          |      271 |             33 |           6.9 |
+| 19 | ![296261](http://lain.bgm.tv/pic/cover/g/50/b5/296261_i3iaJ.jpg) | [Dr.STONE STONE WARS](http://bgm.tv/subject/296261)              |      269 |             16 |           7.8 |
+| 20 | ![195723](http://lain.bgm.tv/pic/cover/g/91/4d/195723_z322N.jpg) | [ゲキドル](http://bgm.tv/subject/195723)                             |      268 |             29 |           6.2 |
 
 ## Code of Conduct
 
